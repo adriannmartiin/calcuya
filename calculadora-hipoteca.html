@@ -64,12 +64,14 @@
   <div class="header-inner">
     <a href="/" class="logo">CalcuYa<span class="logo-dot">.</span></a>
     <nav id="main-nav">
-      <a href="/calculadora-salario-neto.html">💼 Salario neto</a>
+      <a href="/calculadora-salario-neto.html">💼 Salario</a>
       <a href="/calculadora-hipoteca.html" class="active">🏠 Hipoteca</a>
       <a href="/calculadora-finiquito.html">📄 Finiquito</a>
       <a href="/calculadora-irpf.html">📊 IRPF</a>
       <a href="/calculadora-prestamo-personal.html">💰 Préstamo</a>
-      <a href="/calculadora-interes-compuesto.html">📈 Interés compuesto</a>
+      <a href="/calculadora-interes-compuesto.html">📈 Interés</a>
+      <a href="/calculadora-iva.html">🧾 IVA</a>
+      <a href="/calculadora-paro.html">📋 Paro</a>
     </nav>
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </div>
@@ -97,14 +99,14 @@
           <label for="precio">Precio de la vivienda</label>
           <div class="input-wrap">
             <span class="input-prefix">€</span>
-            <input type="number" id="precio" class="has-prefix" placeholder="200000" min="0">
+            <input type="number" autocomplete="off" id="precio" class="has-prefix" placeholder="200000" min="0">
           </div>
         </div>
 
         <div class="form-group">
           <label for="financiacion">Porcentaje financiado</label>
           <div class="input-wrap">
-            <input type="number" id="financiacion" class="has-suffix" placeholder="80" min="1" max="100" value="80">
+            <input type="number" autocomplete="off" id="financiacion" class="has-suffix" placeholder="80" min="1" max="100" value="80">
             <span class="input-suffix">%</span>
           </div>
           <small>El banco financia máx. 80% (90% jóvenes)</small>
@@ -112,21 +114,17 @@
 
         <div class="form-group">
           <label for="plazo">Plazo de la hipoteca</label>
-          <select id="plazo">
-            <option value="10">10 años</option>
-            <option value="15">15 años</option>
-            <option value="20">20 años</option>
-            <option value="25" selected>25 años</option>
-            <option value="30">30 años</option>
-            <option value="35">35 años</option>
-            <option value="40">40 años</option>
-          </select>
+          <div class="input-wrap">
+            <input type="number" autocomplete="off" id="plazo" class="has-suffix" placeholder="25" min="1" max="40" value="25">
+            <span class="input-suffix">años</span>
+          </div>
+          <small>Entre 1 y 40 años</small>
         </div>
 
         <div class="form-group">
           <label for="interes">Tipo de interés anual (TIN)</label>
           <div class="input-wrap">
-            <input type="number" id="interes" class="has-suffix" placeholder="3.5" min="0" max="20" step="0.01" value="3.5">
+            <input type="number" autocomplete="off" id="interes" class="has-suffix" placeholder="3.5" min="0" max="20" step="0.01" value="3.5">
             <span class="input-suffix">%</span>
           </div>
         </div>
@@ -284,18 +282,22 @@
         <div class="footer-logo">CalcuYa.</div>
         <p class="footer-desc">Calculadoras financieras gratuitas para España.</p>
       </div>
-      <div class="footer-col">
+            <div class="footer-col">
         <h4>Calculadoras</h4>
         <a href="/calculadora-salario-neto.html">Salario neto</a>
         <a href="/calculadora-hipoteca.html">Hipoteca</a>
         <a href="/calculadora-finiquito.html">Finiquito</a>
         <a href="/calculadora-irpf.html">IRPF</a>
+        <a href="/calculadora-prestamo-personal.html">Préstamo personal</a>
         <a href="/calculadora-interes-compuesto.html">Interés compuesto</a>
+        <a href="/calculadora-iva.html">IVA</a>
+        <a href="/calculadora-paro.html">Prestación por paro</a>
       </div>
       <div class="footer-col">
         <h4>Legal</h4>
         <a href="/privacidad.html">Política de privacidad</a>
         <a href="/aviso-legal.html">Aviso legal</a>
+        <a href="/cookies.html">Política de cookies</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -316,7 +318,7 @@ function fmt2(n) { return n.toFixed(2).replace('.',','); }
 function calcularHipoteca() {
   const precio   = parseFloat(document.getElementById('precio').value);
   const pct      = parseFloat(document.getElementById('financiacion').value) / 100;
-  const plazo    = parseInt(document.getElementById('plazo').value);
+  const plazo    = parseInt(document.getElementById('plazo').value) || 25;
   const tasa     = parseFloat(document.getElementById('interes').value) / 100 / 12;
 
   if (!precio || precio <= 0) { alert('Introduce el precio de la vivienda.'); return; }
@@ -361,6 +363,13 @@ function calcularHipoteca() {
     tr.innerHTML = `<td>${i}</td><td>${fmt2(cuota)} €</td><td>${fmt2(capMes)} €</td><td>${fmt2(intMes)} €</td><td>${fmt(Math.max(0,saldo))} €</td>`;
     tbody.appendChild(tr);
   }
+
+  // Visual bar
+  const pctCap = (capital / totalPagado * 100).toFixed(0);
+  const pctInt = (totalIntereses / totalPagado * 100).toFixed(0);
+  document.getElementById('bar-capital').style.width = pctCap + '%';
+  document.getElementById('pct-capital').textContent = pctCap + '%';
+  document.getElementById('pct-interes').textContent = pctInt + '%';
 
   const res = document.getElementById('results');
   res.classList.add('visible');

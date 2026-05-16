@@ -41,12 +41,14 @@
   <div class="header-inner">
     <a href="/" class="logo">CalcuYa<span class="logo-dot">.</span></a>
     <nav id="main-nav">
-      <a href="/calculadora-salario-neto.html">💼 Salario neto</a>
+      <a href="/calculadora-salario-neto.html">💼 Salario</a>
       <a href="/calculadora-hipoteca.html">🏠 Hipoteca</a>
       <a href="/calculadora-finiquito.html">📄 Finiquito</a>
       <a href="/calculadora-irpf.html">📊 IRPF</a>
       <a href="/calculadora-prestamo-personal.html">💰 Préstamo</a>
-      <a href="/calculadora-interes-compuesto.html" class="active">📈 Interés compuesto</a>
+      <a href="/calculadora-interes-compuesto.html" class="active">📈 Interés</a>
+      <a href="/calculadora-iva.html">🧾 IVA</a>
+      <a href="/calculadora-paro.html">📋 Paro</a>
     </nav>
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </div>
@@ -74,7 +76,7 @@
           <label for="capital-inicial">Capital inicial</label>
           <div class="input-wrap">
             <span class="input-prefix">€</span>
-            <input type="number" id="capital-inicial" class="has-prefix" placeholder="1000" min="0" value="">
+            <input type="number" autocomplete="off" id="capital-inicial" class="has-prefix" placeholder="1000" min="0" value="">
           </div>
         </div>
 
@@ -82,14 +84,14 @@
           <label for="aportacion-mensual">Aportación mensual</label>
           <div class="input-wrap">
             <span class="input-prefix">€</span>
-            <input type="number" id="aportacion-mensual" class="has-prefix" placeholder="200" min="0" value="">
+            <input type="number" autocomplete="off" id="aportacion-mensual" class="has-prefix" placeholder="200" min="0" value="">
           </div>
         </div>
 
         <div class="form-group">
           <label for="tae">Rentabilidad anual (TAE)</label>
           <div class="input-wrap">
-            <input type="number" id="tae" class="has-suffix" placeholder="7" min="0" max="100" step="0.1" value="7">
+            <input type="number" autocomplete="off" id="tae" class="has-suffix" placeholder="7" min="0" max="100" step="0.1" value="7">
             <span class="input-suffix">%</span>
           </div>
           <small>Bolsa diversificada históricamente: ~7–8% anual</small>
@@ -97,15 +99,11 @@
 
         <div class="form-group">
           <label for="anos">Periodo de inversión</label>
-          <select id="anos">
-            <option value="5">5 años</option>
-            <option value="10">10 años</option>
-            <option value="15">15 años</option>
-            <option value="20" selected>20 años</option>
-            <option value="25">25 años</option>
-            <option value="30">30 años</option>
-            <option value="40">40 años</option>
-          </select>
+          <div class="input-wrap">
+            <input type="number" autocomplete="off" id="anos" class="has-suffix" placeholder="20" min="1" max="50" value="20">
+            <span class="input-suffix">años</span>
+          </div>
+          <small>Entre 1 y 50 años</small>
         </div>
 
         <button class="btn-calc" onclick="calcularInteres()">Calcular crecimiento</button>
@@ -160,6 +158,9 @@
             </thead>
             <tbody id="tabla-body"></tbody>
           </table>
+        </div>
+        <div id="tabla-more" style="display:none; text-align:center; margin-top:10px;">
+          <button onclick="mostrarTodaTabla()" style="background:none;border:1px solid var(--border);border-radius:8px;padding:8px 20px;font-size:13px;color:var(--text-muted);cursor:pointer;">Ver todos los años ▾</button>
         </div>
       </div>
 
@@ -239,18 +240,22 @@
   <div class="footer-inner">
     <div class="footer-grid">
       <div><div class="footer-logo">CalcuYa.</div><p class="footer-desc">Calculadoras financieras gratuitas para España.</p></div>
-      <div class="footer-col">
+            <div class="footer-col">
         <h4>Calculadoras</h4>
         <a href="/calculadora-salario-neto.html">Salario neto</a>
         <a href="/calculadora-hipoteca.html">Hipoteca</a>
         <a href="/calculadora-finiquito.html">Finiquito</a>
         <a href="/calculadora-irpf.html">IRPF</a>
+        <a href="/calculadora-prestamo-personal.html">Préstamo personal</a>
         <a href="/calculadora-interes-compuesto.html">Interés compuesto</a>
+        <a href="/calculadora-iva.html">IVA</a>
+        <a href="/calculadora-paro.html">Prestación por paro</a>
       </div>
       <div class="footer-col">
         <h4>Legal</h4>
         <a href="/privacidad.html">Política de privacidad</a>
         <a href="/aviso-legal.html">Aviso legal</a>
+        <a href="/cookies.html">Política de cookies</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -273,7 +278,7 @@ function calcularInteres() {
   const P   = parseFloat(document.getElementById('capital-inicial').value) || 0;
   const pmt = parseFloat(document.getElementById('aportacion-mensual').value) || 0;
   const tae = parseFloat(document.getElementById('tae').value) || 0;
-  const n   = parseInt(document.getElementById('anos').value);
+  const n   = parseInt(document.getElementById('anos').value) || 20;
 
   if (tae < 0 || tae > 100) { alert('Introduce una TAE válida (0–100%).'); return; }
 
@@ -301,9 +306,15 @@ function calcularInteres() {
 
     const tr = document.createElement('tr');
     tr.innerHTML = `<td>${ano}</td><td>${fmt(aportadoAcum)} €</td><td>${fmt(interesesAcum)} €</td><td><strong>${fmt(capitalAcum)} €</strong></td>`;
-    tbody.appendChild(tr);
+    window._allRows.push(tr);
+    if (ano <= 10) tbody.appendChild(tr);
   }
 
+  if (n > 10) {
+    document.getElementById('tabla-more').style.display = 'block';
+  } else {
+    document.getElementById('tabla-more').style.display = 'none';
+  }
   const capitalFinal   = capitalAcum;
   const totalAportado  = aportadoAcum;
   const totalIntereses = capitalFinal - totalAportado;
@@ -361,6 +372,12 @@ function calcularInteres() {
   const res = document.getElementById('results');
   res.classList.add('visible');
   res.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function mostrarTodaTabla() {
+  const tbody = document.getElementById('tabla-body');
+  window._allRows.forEach(tr => { if (!tbody.contains(tr)) tbody.appendChild(tr); });
+  document.getElementById('tabla-more').style.display = 'none';
 }
 
 function toggleFaq(btn) {

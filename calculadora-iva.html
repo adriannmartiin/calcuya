@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de IVA 2025 | Añadir y Quitar IVA Online — CalcuYa</title>
+  <meta name="description" content="Calcula el IVA en España 2025. Añade o quita IVA al 21%, 10% y 4% al instante. Calcula la base imponible, cuota de IVA y precio total. Gratis y sin registro.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calcuya.org/calculadora-iva">
+  <meta property="og:title" content="Calculadora de IVA 2025 — CalcuYa">
+  <meta property="og:description" content="Añade o quita IVA al 21%, 10% y 4% al instante. Calcula base imponible y cuota de IVA.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://calcuya.org/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6RC7MNOCPD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6RC7MNOCPD');
+  </script>
+  <!-- Google AdSense: reemplaza ca-pub-XXXXXXXXXXXXXXXXXX con tu Publisher ID -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Calculadora de IVA 2025",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "description": "Calcula el IVA en España al 21%, 10% y 4%. Añade o quita IVA al instante."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuáles son los tipos de IVA en España en 2025?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "En España existen tres tipos de IVA: el tipo general del 21% (la mayoría de bienes y servicios), el tipo reducido del 10% (alimentos no básicos, hostelería, transporte) y el tipo superreducido del 4% (alimentos básicos, libros, medicamentos)."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">CalcuYa<span class="logo-dot">.</span></a>
+    <nav id="main-nav">
+      <a href="/calculadora-salario-neto.html">💼 Salario</a>
+      <a href="/calculadora-hipoteca.html">🏠 Hipoteca</a>
+      <a href="/calculadora-finiquito.html">📄 Finiquito</a>
+      <a href="/calculadora-irpf.html">📊 IRPF</a>
+      <a href="/calculadora-prestamo-personal.html">💰 Préstamo</a>
+      <a href="/calculadora-interes-compuesto.html">📈 Interés</a>
+      <a href="/calculadora-iva.html" class="active">🧾 IVA</a>
+      <a href="/calculadora-paro.html">📋 Paro</a>
+    </nav>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<main class="page-wrap">
+
+  <section class="page-hero">
+    <div class="breadcrumb"><a href="/">Inicio</a><span>›</span>Calculadora de IVA</div>
+    <div class="tool-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      Calculadora fiscal 2025
+    </div>
+    <h1 class="tool-title">Calculadora<br>de IVA</h1>
+    <p class="tool-subtitle">Añade o quita el IVA al instante. Compatible con los tres tipos de IVA en España: 21%, 10% y 4%. Resultado inmediato y sin registro.</p>
+  </section>
+
+  <div class="ad-slot"><!-- AdSense --></div>
+
+  <div class="calc-card">
+    <div class="calc-form">
+      <div class="form-grid">
+
+        <!-- Modo -->
+        <div class="form-group full">
+          <label>¿Qué quieres hacer?</label>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:4px;">
+            <button id="btn-anadir" onclick="setModo('anadir')"
+              style="height:46px; border-radius:8px; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:600; cursor:pointer; transition:all .15s; background:var(--brand); color:#fff; border:2px solid var(--brand);">
+              ➕ Añadir IVA
+            </button>
+            <button id="btn-quitar" onclick="setModo('quitar')"
+              style="height:46px; border-radius:8px; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:600; cursor:pointer; transition:all .15s; background:var(--white); color:var(--text-muted); border:2px solid var(--border);">
+              ➖ Quitar IVA
+            </button>
+          </div>
+          <small id="modo-desc" style="margin-top:6px; display:block; color:var(--text-muted);">Introduce el precio sin IVA y te calculas el total a pagar</small>
+        </div>
+
+        <div class="form-group">
+          <label for="importe" id="importe-label">Precio sin IVA (base imponible)</label>
+          <div class="input-wrap">
+            <span class="input-prefix">€</span>
+            <input type="number" autocomplete="off" id="importe" class="has-prefix" placeholder="100" min="0" step="0.01">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="tipo-iva">Tipo de IVA</label>
+          <select id="tipo-iva" onchange="toggleIvaCustom(this.value)">
+            <option value="21" selected>21% — General (mayoría de bienes)</option>
+            <option value="10">10% — Reducido (hostelería, alimentos...)</option>
+            <option value="4">4% — Superreducido (básicos, libros...)</option>
+            <option value="custom">Personalizado...</option>
+          </select>
+          <div id="iva-custom-wrap" style="display:none; margin-top:8px;">
+            <div class="input-wrap">
+              <input type="number" autocomplete="off" id="tipo-iva-custom" class="has-suffix" placeholder="15" min="0" max="100" step="0.1">
+              <span class="input-suffix">%</span>
+            </div>
+            <small>Introduce cualquier tipo de IVA (p.ej. tipos de otros países de la UE)</small>
+          </div>
+        </div>
+
+        <button class="btn-calc" onclick="calcularIVA()">Calcular IVA</button>
+      </div>
+    </div>
+
+    <div class="results-section" id="results">
+      <div class="results-title">Resultado del cálculo de IVA</div>
+      <div class="results-grid">
+        <div class="result-box highlight">
+          <div class="result-label" id="r-main-label">Precio total con IVA</div>
+          <div class="result-value"><small>€</small><span id="v-total">—</span></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label" id="r-base-label">Base imponible</div>
+          <div class="result-value"><small>€</small><span id="v-base">—</span></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Cuota de IVA</div>
+          <div class="result-value"><small>€</small><span id="v-iva">—</span></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Tipo aplicado</div>
+          <div class="result-value"><span id="v-tipo">—</span><small>%</small></div>
+        </div>
+      </div>
+
+      <div class="breakdown">
+        <div class="breakdown-row">
+          <span class="label" id="b-base-label">Base imponible (sin IVA)</span>
+          <span class="value" id="b-base">—</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="label">IVA (<span id="b-tipo">—</span>%)</span>
+          <span class="value green" id="b-iva">—</span>
+        </div>
+        <div class="breakdown-row total">
+          <span class="label" id="b-total-label">Total con IVA</span>
+          <span class="value" id="b-total">—</span>
+        </div>
+      </div>
+
+      <!-- Tabla comparativa 3 tipos -->
+      <div style="margin-top:16px; background:var(--white); border-radius:var(--radius); border:1px solid var(--border); overflow:hidden;">
+        <p style="font-size:13px; font-weight:600; padding:12px 16px 0; color:var(--text);">Comparativa con los tres tipos de IVA</p>
+        <table style="width:100%; border-collapse:collapse; font-size:13px;">
+          <thead>
+            <tr style="background:var(--bg);">
+              <th style="text-align:left; padding:8px 16px; font-size:12px; font-weight:600; color:var(--text-muted); border-bottom:0.5px solid var(--border);">Tipo IVA</th>
+              <th style="text-align:right; padding:8px 16px; font-size:12px; font-weight:600; color:var(--text-muted); border-bottom:0.5px solid var(--border);">Cuota IVA</th>
+              <th style="text-align:right; padding:8px 16px; font-size:12px; font-weight:600; color:var(--text-muted); border-bottom:0.5px solid var(--border);">Total</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-comparativa"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-slot"><!-- AdSense --></div>
+
+  <section class="faq-section">
+    <h2>Preguntas frecuentes sobre el IVA</h2>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Cuáles son los tipos de IVA en España en 2025?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>En España existen tres tipos de IVA en 2025:</p>
+        <p><strong>IVA general (21%):</strong> Se aplica a la mayoría de bienes y servicios: ropa, electrónica, coches, servicios profesionales, telecomunicaciones.</p>
+        <p><strong>IVA reducido (10%):</strong> Alimentos no básicos, bebidas no alcohólicas, hostelería y restauración, transporte de viajeros, flores, plantas, espectáculos culturales y deportivos, viviendas nuevas.</p>
+        <p><strong>IVA superreducido (4%):</strong> Alimentos básicos (pan, leche, huevos, frutas, verduras), libros, periódicos, revistas, medicamentos, gafas y lentillas, sillas de ruedas, prótesis.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Cómo se calcula el IVA?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p><strong>Añadir IVA (base imponible → precio final):</strong></p>
+        <p>Cuota IVA = Base imponible × (tipo IVA / 100)</p>
+        <p>Precio final = Base imponible + Cuota IVA</p>
+        <p>Ejemplo: Base de 100€ al 21% → Cuota = 21€ → Total = 121€</p>
+        <p style="margin-top:8px;"><strong>Quitar IVA (precio final → base imponible):</strong></p>
+        <p>Base imponible = Precio final / (1 + tipo IVA / 100)</p>
+        <p>Ejemplo: Total de 121€ con 21% → Base = 121 / 1,21 = 100€</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Qué es la base imponible?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>La base imponible es el importe sobre el que se aplica el tipo de IVA. Es el precio del bien o servicio antes de añadir el impuesto. En las facturas siempre debe aparecer la base imponible, el tipo de IVA y la cuota de IVA por separado.</p>
+        <p>Para los autónomos y empresas, la base imponible es clave porque es la que usas para calcular el IVA a ingresar en Hacienda (diferencia entre el IVA cobrado a clientes y el IVA pagado a proveedores).</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Quién está exento de pagar IVA?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>Algunas actividades están exentas de IVA en España: servicios médicos y sanitarios, educación reglada, servicios financieros y seguros, operaciones inmobiliarias de segunda transmisión (segunda mano), servicios postales públicos.</p>
+        <p>Los autónomos en régimen de recargo de equivalencia y los que facturen menos de 85.000€ anuales pueden acogerse al régimen simplificado. Además, ciertos autónomos con actividades exentas no repercuten IVA pero tampoco pueden deducírselo.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Cuándo hay que presentar el IVA a Hacienda?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>Los autónomos y empresas deben presentar el modelo 303 de IVA de forma trimestral: en enero (4º trimestre), abril (1er trimestre), julio (2º trimestre) y octubre (3er trimestre).</p>
+        <p>Además, en enero de cada año se presenta el modelo 390, que es el resumen anual del IVA. Las grandes empresas (más de 6 millones de euros de facturación) presentan el IVA mensualmente.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ad-slot"><!-- AdSense --></div>
+
+  <section class="related-section">
+    <h2>Otras calculadoras relacionadas</h2>
+    <div class="tools-grid">
+      <a href="/calculadora-irpf.html" class="tool-card"><span class="tc-emoji">📊</span><div class="tc-name">IRPF</div><div class="tc-desc">Calcula tu cuota del impuesto sobre la renta.</div></a>
+      <a href="/calculadora-salario-neto.html" class="tool-card"><span class="tc-emoji">💼</span><div class="tc-name">Salario neto</div><div class="tc-desc">Cuánto cobras realmente de tu bruto.</div></a>
+      <a href="/calculadora-finiquito.html" class="tool-card"><span class="tc-emoji">📄</span><div class="tc-name">Finiquito</div><div class="tc-desc">Calcula tu liquidación laboral.</div></a>
+      <a href="/calculadora-paro.html" class="tool-card"><span class="tc-emoji">📋</span><div class="tc-name">Prestación por paro</div><div class="tc-desc">Cuánto paro te corresponde.</div></a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div><div class="footer-logo">CalcuYa.</div><p class="footer-desc">Calculadoras financieras gratuitas para España.</p></div>
+            <div class="footer-col">
+        <h4>Calculadoras</h4>
+        <a href="/calculadora-salario-neto.html">Salario neto</a>
+        <a href="/calculadora-hipoteca.html">Hipoteca</a>
+        <a href="/calculadora-finiquito.html">Finiquito</a>
+        <a href="/calculadora-irpf.html">IRPF</a>
+        <a href="/calculadora-prestamo-personal.html">Préstamo personal</a>
+        <a href="/calculadora-interes-compuesto.html">Interés compuesto</a>
+        <a href="/calculadora-iva.html">IVA</a>
+        <a href="/calculadora-paro.html">Prestación por paro</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="/privacidad.html">Política de privacidad</a>
+        <a href="/aviso-legal.html">Aviso legal</a>
+        <a href="/cookies.html">Política de cookies</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 CalcuYa.</span>
+      <span>Cálculos orientativos. No constituyen asesoramiento fiscal.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const ham = document.getElementById('hamburger');
+const nav = document.getElementById('main-nav');
+ham.addEventListener('click', () => nav.classList.toggle('open'));
+
+let modo = 'anadir';
+
+function setModo(m) {
+  modo = m;
+  const btnA = document.getElementById('btn-anadir');
+  const btnQ = document.getElementById('btn-quitar');
+  const brand = '#065f46';
+  if (m === 'anadir') {
+    btnA.style.background = brand; btnA.style.color = '#fff'; btnA.style.borderColor = brand;
+    btnQ.style.background = 'var(--white)'; btnQ.style.color = 'var(--text-muted)'; btnQ.style.borderColor = 'var(--border)';
+    document.getElementById('importe-label').textContent = 'Precio sin IVA (base imponible)';
+    document.getElementById('modo-desc').textContent = 'Introduce el precio sin IVA y calcula el total a pagar';
+  } else {
+    btnQ.style.background = brand; btnQ.style.color = '#fff'; btnQ.style.borderColor = brand;
+    btnA.style.background = 'var(--white)'; btnA.style.color = 'var(--text-muted)'; btnA.style.borderColor = 'var(--border)';
+    document.getElementById('importe-label').textContent = 'Precio total con IVA incluido';
+    document.getElementById('modo-desc').textContent = 'Introduce el precio final y calcula la base imponible';
+  }
+  document.getElementById('results').classList.remove('visible');
+}
+
+function fmt2(n) { return n.toFixed(2).replace('.', ','); }
+
+function calcularIVA() {
+  const importe = parseFloat(document.getElementById('importe').value);
+  const selectVal = document.getElementById('tipo-iva').value;
+  const tipo = selectVal === 'custom'
+    ? parseFloat(document.getElementById('tipo-iva-custom').value) || 21
+    : parseFloat(selectVal);
+  if (isNaN(tipo) || tipo <= 0) { alert('Introduce un tipo de IVA válido.'); return; }
+  if (!importe || importe <= 0) { alert('Introduce un importe válido.'); return; }
+
+  let base, cuota, total;
+  if (modo === 'anadir') {
+    base  = importe;
+    cuota = base * tipo / 100;
+    total = base + cuota;
+  } else {
+    total = importe;
+    base  = total / (1 + tipo / 100);
+    cuota = total - base;
+  }
+
+  // Main results
+  document.getElementById('v-total').textContent = fmt2(modo === 'anadir' ? total : base);
+  document.getElementById('v-base').textContent  = fmt2(modo === 'anadir' ? base : total);
+  document.getElementById('v-iva').textContent   = fmt2(cuota);
+  document.getElementById('v-tipo').textContent  = tipo;
+  document.getElementById('r-main-label').textContent = modo === 'anadir' ? 'Precio total con IVA' : 'Base imponible';
+  document.getElementById('r-base-label').textContent = modo === 'anadir' ? 'Base imponible' : 'Precio total con IVA';
+
+  // Breakdown
+  document.getElementById('b-base-label').textContent = modo === 'anadir' ? 'Base imponible (sin IVA)' : 'Precio total con IVA';
+  document.getElementById('b-tipo').textContent = tipo;
+  document.getElementById('b-base').textContent  = fmt2(base) + ' €';
+  document.getElementById('b-iva').textContent   = fmt2(cuota) + ' €';
+  document.getElementById('b-total-label').textContent = modo === 'anadir' ? 'Total con IVA' : 'Base imponible';
+  document.getElementById('b-total').textContent = fmt2(total) + ' €';
+
+  // Tabla comparativa
+  const tbody = document.getElementById('tabla-comparativa');
+  tbody.innerHTML = '';
+  const tipos = [{t:21, label:'21% — General'}, {t:10, label:'10% — Reducido'}, {t:4, label:'4% — Superreducido'}];
+  tipos.forEach(({t, label}) => {
+    let b2, c2, tot2;
+    if (modo === 'anadir') {
+      b2 = importe; c2 = b2 * t / 100; tot2 = b2 + c2;
+    } else {
+      tot2 = importe; b2 = tot2 / (1 + t/100); c2 = tot2 - b2;
+    }
+    const highlight = t === tipo ? 'background:var(--brand-pale);' : '';
+    tbody.innerHTML += `<tr style="${highlight}">
+      <td style="padding:9px 16px;border-bottom:0.5px solid var(--border);font-weight:${t===tipo?'600':'400'}">${label}</td>
+      <td style="padding:9px 16px;border-bottom:0.5px solid var(--border);text-align:right">${fmt2(c2)} €</td>
+      <td style="padding:9px 16px;border-bottom:0.5px solid var(--border);text-align:right;font-weight:${t===tipo?'600':'400'}">${fmt2(tot2)} €</td>
+    </tr>`;
+  });
+
+  const res = document.getElementById('results');
+  res.classList.add('visible');
+  res.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function toggleIvaCustom(val) {
+  const wrap = document.getElementById('iva-custom-wrap');
+  wrap.style.display = val === 'custom' ? 'block' : 'none';
+  if (val === 'custom') document.getElementById('tipo-iva-custom').focus();
+}
+
+function toggleFaq(btn) {
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', !expanded);
+  btn.nextElementSibling.classList.toggle('open');
+}
+</script>
+<script src="/cookie-banner.js"></script>
+</body>
+</html>

@@ -82,15 +82,14 @@ nav a:hover, nav a.active {
 
 /* ── AD SLOTS ────────────────────────────────── */
 .ad-slot {
-  background: var(--bg);
-  border: 1px dashed var(--border);
-  border-radius: var(--radius-sm);
-  min-height: 90px;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--text-light); font-size: 12px;
-  margin: 20px 0; text-align: center;
+  margin: 20px 0;
+  min-height: 0;
+  display: block;
+  text-align: center;
 }
+.ad-slot:empty { display: none; }
 .ad-slot ins { display: block; width: 100%; }
+.ad-slot > *:not(ins):not(script) { display: none; }
 
 /* ── LAYOUT ──────────────────────────────────── */
 .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }

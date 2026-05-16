@@ -40,11 +40,14 @@
   <div class="header-inner">
     <a href="/" class="logo">CalcuYa<span class="logo-dot">.</span></a>
     <nav id="main-nav">
-      <a href="/calculadora-salario-neto.html">💼 Salario neto</a>
+      <a href="/calculadora-salario-neto.html">💼 Salario</a>
       <a href="/calculadora-hipoteca.html">🏠 Hipoteca</a>
       <a href="/calculadora-finiquito.html">📄 Finiquito</a>
       <a href="/calculadora-irpf.html" class="active">📊 IRPF</a>
-      <a href="/calculadora-interes-compuesto.html">📈 Interés compuesto</a>
+      <a href="/calculadora-prestamo-personal.html">💰 Préstamo</a>
+      <a href="/calculadora-interes-compuesto.html">📈 Interés</a>
+      <a href="/calculadora-iva.html">🧾 IVA</a>
+      <a href="/calculadora-paro.html">📋 Paro</a>
     </nav>
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </div>
@@ -72,7 +75,7 @@
           <label for="rendimientos">Rendimientos del trabajo netos (salario bruto − SS)</label>
           <div class="input-wrap">
             <span class="input-prefix">€</span>
-            <input type="number" id="rendimientos" class="has-prefix" placeholder="28000" min="0">
+            <input type="number" autocomplete="off" id="rendimientos" class="has-prefix" placeholder="28000" min="0">
           </div>
           <small>Si no sabes el neto de SS, introduce el salario bruto anual; la calculadora ajusta automáticamente.</small>
         </div>
@@ -111,6 +114,7 @@
           <select id="pagas-irpf">
             <option value="12">12 pagas</option>
             <option value="14" selected>14 pagas</option>
+            <option value="16">16 pagas</option>
           </select>
         </div>
 
@@ -251,18 +255,22 @@
   <div class="footer-inner">
     <div class="footer-grid">
       <div><div class="footer-logo">CalcuYa.</div><p class="footer-desc">Calculadoras financieras gratuitas para España.</p></div>
-      <div class="footer-col">
+            <div class="footer-col">
         <h4>Calculadoras</h4>
         <a href="/calculadora-salario-neto.html">Salario neto</a>
         <a href="/calculadora-hipoteca.html">Hipoteca</a>
         <a href="/calculadora-finiquito.html">Finiquito</a>
         <a href="/calculadora-irpf.html">IRPF</a>
+        <a href="/calculadora-prestamo-personal.html">Préstamo personal</a>
         <a href="/calculadora-interes-compuesto.html">Interés compuesto</a>
+        <a href="/calculadora-iva.html">IVA</a>
+        <a href="/calculadora-paro.html">Prestación por paro</a>
       </div>
       <div class="footer-col">
         <h4>Legal</h4>
         <a href="/privacidad.html">Política de privacidad</a>
         <a href="/aviso-legal.html">Aviso legal</a>
+        <a href="/cookies.html">Política de cookies</a>
       </div>
     </div>
     <div class="footer-bottom">

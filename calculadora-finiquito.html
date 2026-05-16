@@ -56,12 +56,14 @@
   <div class="header-inner">
     <a href="/" class="logo">CalcuYa<span class="logo-dot">.</span></a>
     <nav id="main-nav">
-      <a href="/calculadora-salario-neto.html">💼 Salario neto</a>
+      <a href="/calculadora-salario-neto.html">💼 Salario</a>
       <a href="/calculadora-hipoteca.html">🏠 Hipoteca</a>
       <a href="/calculadora-finiquito.html" class="active">📄 Finiquito</a>
       <a href="/calculadora-irpf.html">📊 IRPF</a>
       <a href="/calculadora-prestamo-personal.html">💰 Préstamo</a>
-      <a href="/calculadora-interes-compuesto.html">📈 Interés compuesto</a>
+      <a href="/calculadora-interes-compuesto.html">📈 Interés</a>
+      <a href="/calculadora-iva.html">🧾 IVA</a>
+      <a href="/calculadora-paro.html">📋 Paro</a>
     </nav>
     <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </div>
@@ -89,7 +91,7 @@
           <label for="salario-mes">Salario bruto mensual</label>
           <div class="input-wrap">
             <span class="input-prefix">€</span>
-            <input type="number" id="salario-mes" class="has-prefix" placeholder="2000" min="0">
+            <input type="number" autocomplete="off" id="salario-mes" class="has-prefix" placeholder="2000" min="0">
           </div>
         </div>
 
@@ -98,23 +100,24 @@
           <select id="pagas">
             <option value="12">12 pagas</option>
             <option value="14" selected>14 pagas</option>
+            <option value="16">16 pagas</option>
           </select>
         </div>
 
         <div class="form-group">
           <label for="fecha-inicio">Fecha de inicio del contrato</label>
-          <input type="date" id="fecha-inicio" style="height:46px; background:var(--bg); border:1.5px solid var(--border); border-radius:8px; font-family:'DM Sans',sans-serif; font-size:15px; padding:0 12px; width:100%;">
+          <input type="date" id="fecha-inicio" max="2026-05-16" style="height:46px; background:var(--bg); border:1.5px solid var(--border); border-radius:8px; font-family:'DM Sans',sans-serif; font-size:15px; padding:0 12px; width:100%;">
         </div>
 
         <div class="form-group">
           <label for="fecha-fin">Fecha de finalización del contrato</label>
-          <input type="date" id="fecha-fin" style="height:46px; background:var(--bg); border:1.5px solid var(--border); border-radius:8px; font-family:'DM Sans',sans-serif; font-size:15px; padding:0 12px; width:100%;">
+          <input type="date" id="fecha-fin" max="2026-05-16" style="height:46px; background:var(--bg); border:1.5px solid var(--border); border-radius:8px; font-family:'DM Sans',sans-serif; font-size:15px; padding:0 12px; width:100%;">
         </div>
 
         <div class="form-group">
           <label for="vacaciones-anuales">Días de vacaciones anuales (convenio)</label>
           <div class="input-wrap">
-            <input type="number" id="vacaciones-anuales" class="has-suffix" placeholder="22" min="0" max="365" value="22">
+            <input type="number" autocomplete="off" id="vacaciones-anuales" class="has-suffix" placeholder="22" min="0" max="365" value="22">
             <span class="input-suffix">días</span>
           </div>
           <small>Mínimo legal: 22 días hábiles/año</small>
@@ -123,7 +126,7 @@
         <div class="form-group">
           <label for="vacaciones-disfrutadas">Días de vacaciones ya disfrutados este año</label>
           <div class="input-wrap">
-            <input type="number" id="vacaciones-disfrutadas" class="has-suffix" placeholder="0" min="0" max="365" value="0">
+            <input type="number" autocomplete="off" id="vacaciones-disfrutadas" class="has-suffix" placeholder="0" min="0" max="365" value="0">
             <span class="input-suffix">días</span>
           </div>
         </div>
@@ -281,18 +284,22 @@
   <div class="footer-inner">
     <div class="footer-grid">
       <div><div class="footer-logo">CalcuYa.</div><p class="footer-desc">Calculadoras financieras y laborales gratuitas para España.</p></div>
-      <div class="footer-col">
+            <div class="footer-col">
         <h4>Calculadoras</h4>
         <a href="/calculadora-salario-neto.html">Salario neto</a>
         <a href="/calculadora-hipoteca.html">Hipoteca</a>
         <a href="/calculadora-finiquito.html">Finiquito</a>
         <a href="/calculadora-irpf.html">IRPF</a>
+        <a href="/calculadora-prestamo-personal.html">Préstamo personal</a>
         <a href="/calculadora-interes-compuesto.html">Interés compuesto</a>
+        <a href="/calculadora-iva.html">IVA</a>
+        <a href="/calculadora-paro.html">Prestación por paro</a>
       </div>
       <div class="footer-col">
         <h4>Legal</h4>
         <a href="/privacidad.html">Política de privacidad</a>
         <a href="/aviso-legal.html">Aviso legal</a>
+        <a href="/cookies.html">Política de cookies</a>
       </div>
     </div>
     <div class="footer-bottom">
