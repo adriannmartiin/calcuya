@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://calcuya.es/sitemap.xml
+Sitemap: https://calcuya.org/sitemap.xml
