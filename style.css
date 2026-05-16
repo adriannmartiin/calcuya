@@ -361,3 +361,12 @@ footer { background: var(--text); color: rgba(255,255,255,.7); margin-top: 60px;
   opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999;
 }
 .share-toast.show { opacity: 1; }
+
+
+/* ── Eliminar flechas nativas de inputs number (evita solapamiento) */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] { -moz-appearance: textfield; }

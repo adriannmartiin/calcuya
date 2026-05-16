@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador y Calculadora de Plusvalía Municipal — CalcuYa</title>
+  <meta name="description" content="Simulador y calculadora de plusvalía municipal (IIVTNU) gratis. Calcula el impuesto de plusvalía al vender, heredar o donar un inmueble usando los dos métodos oficiales vigentes en España.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calcuya.org/calculadora-plusvalia">
+  <meta property="og:title" content="Simulador y Calculadora de Plusvalía Municipal — CalcuYa">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://calcuya.org/og-image.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6RC7MNOCPD"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6RC7MNOCPD');</script>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">CalcuYa<span class="logo-dot">.</span></a>
+    <nav id="main-nav">
+      <a href="/calculadora-salario-neto.html">💼 Salario</a>
+      <a href="/calculadora-hipoteca.html">🏠 Hipoteca</a>
+      <a href="/calculadora-irpf.html">📊 IRPF</a>
+      <a href="/calculadora-plusvalia.html" class="active">🏘️ Plusvalía</a>
+      <a href="/calculadora-iva.html">🧾 IVA</a>
+      <a href="/calculadora-pension.html">👴 Pensión</a>
+      <a href="/calculadora-paro.html">📋 Paro</a>
+    </nav>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<main class="page-wrap">
+  <section class="page-hero">
+    <div class="breadcrumb"><a href="/">Inicio</a><span>›</span>Plusvalía municipal</div>
+    <div class="tool-badge">🏘️ Impuesto municipal</div>
+    <h1 class="tool-title">Simulador y Calculadora<br>de Plusvalía Municipal</h1>
+    <p class="tool-subtitle">Calcula el impuesto sobre el incremento de valor de los terrenos urbanos (IIVTNU) al vender, heredar o donar un inmueble. Usa los dos métodos oficiales y aplica automáticamente el más favorable.</p>
+  </section>
+
+  <div class="ad-slot"><!-- AdSense --></div>
+
+  <div class="calc-card">
+    <div class="calc-form">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="valor-catastral-suelo">Valor catastral del suelo</label>
+          <div class="input-wrap"><span class="input-prefix">€</span>
+            <input type="number" autocomplete="off" id="valor-catastral-suelo" class="has-prefix" placeholder="60000" min="0">
+          </div>
+          <small>Solo el valor del suelo, no de la construcción (figura en el recibo del IBI)</small>
+        </div>
+        <div class="form-group">
+          <label for="anos-tenencia">Años de tenencia del inmueble</label>
+          <div class="input-wrap">
+            <input type="number" autocomplete="off" id="anos-tenencia" class="has-suffix" placeholder="10" min="0" max="50" value="10">
+            <span class="input-suffix">años</span>
+          </div>
+          <small>Años completos desde la adquisición hasta la transmisión</small>
+        </div>
+        <div class="form-group">
+          <label for="tipo-gravamen">Tipo de gravamen municipal</label>
+          <div class="input-wrap">
+            <input type="number" autocomplete="off" id="tipo-gravamen" class="has-suffix" placeholder="28" min="1" max="30" step="0.1" value="28">
+            <span class="input-suffix">%</span>
+          </div>
+          <small>Cada ayuntamiento fija su tipo. Máximo legal: 30%. Media aprox: 25-28%.</small>
+        </div>
+        <div class="form-group">
+          <label for="tipo-operacion">Tipo de operación</label>
+          <select id="tipo-operacion">
+            <option value="venta" selected>Venta de inmueble</option>
+            <option value="herencia">Herencia</option>
+            <option value="donacion">Donación</option>
+          </select>
+        </div>
+
+        <!-- Método real (opcional) -->
+        <div class="form-group full">
+          <label>¿Tienes datos para el método real? (opcional)</label>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:6px;">
+            <div>
+              <label for="precio-compra" style="font-size:11px; color:var(--text-muted)">Precio de compra (€)</label>
+              <div class="input-wrap"><span class="input-prefix">€</span>
+                <input type="number" autocomplete="off" id="precio-compra" class="has-prefix" placeholder="Opcional">
+              </div>
+            </div>
+            <div>
+              <label for="precio-venta" style="font-size:11px; color:var(--text-muted)">Precio de venta / valor declarado (€)</label>
+              <div class="input-wrap"><span class="input-prefix">€</span>
+                <input type="number" autocomplete="off" id="precio-venta" class="has-prefix" placeholder="Opcional">
+              </div>
+            </div>
+          </div>
+          <small>Si introduces ambos, se calculan los dos métodos y se aplica el más favorable (el que da menor cuota)</small>
+        </div>
+
+        <button class="btn-calc" onclick="calcularPlusvalia()">Calcular plusvalía</button>
+      </div>
+    </div>
+
+    <div class="results-section" id="results">
+      <div class="results-title">Resultado de la plusvalía municipal</div>
+      <div class="results-grid">
+        <div class="result-box highlight">
+          <div class="result-label">Cuota a pagar</div>
+          <div class="result-value"><small>€</small><span id="v-cuota">—</span></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Método aplicado</div>
+          <div class="result-value" style="font-size:16px"><span id="v-metodo">—</span></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Base imponible</div>
+          <div class="result-value"><small>€</small><span id="v-base">—</span></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Tipo de gravamen</div>
+          <div class="result-value"><span id="v-tipo">—</span><small>%</small></div>
+        </div>
+      </div>
+
+      <div class="breakdown">
+        <div class="breakdown-row"><span class="label">Valor catastral del suelo</span><span class="value" id="b-suelo">—</span></div>
+        <div class="breakdown-row"><span class="label">Coeficiente aplicado (método objetivo)</span><span class="value" id="b-coef">—</span></div>
+        <div class="breakdown-row"><span class="label">Base imponible método objetivo</span><span class="value" id="b-base-obj">—</span></div>
+        <div class="breakdown-row" id="row-real" style="display:none"><span class="label">Base imponible método real</span><span class="value" id="b-base-real">—</span></div>
+        <div class="breakdown-row"><span class="label">Base imponible aplicada (menor de los dos)</span><span class="value green" id="b-base-final">—</span></div>
+        <div class="breakdown-row total"><span class="label">Cuota tributaria (base × tipo)</span><span class="value" id="b-cuota-total">—</span></div>
+      </div>
+
+      <div class="info-box" style="margin-top:14px">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Si has vendido a pérdidas (precio de venta menor que el de compra), <strong>no hay plusvalía</strong> y estás exento. Esta calculadora usa los coeficientes máximos estatales — tu ayuntamiento puede aplicar coeficientes menores. Consulta las ordenanzas municipales para el tipo exacto.
+      </div>
+
+      <div class="share-box">
+        <p>¿Te ha sido útil?</p>
+        <button class="share-btn wa" onclick="shareWA()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Enviar por WhatsApp
+        </button>
+        <button class="share-btn cp" onclick="copyLink()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          Copiar enlace
+        </button>
+      </div>
+      <div class="share-toast" id="share-toast">¡Enlace copiado!</div>
+    </div>
+  </div>
+
+  <div class="ad-slot"><!-- AdSense --></div>
+
+  <section class="faq-section">
+    <h2>Preguntas frecuentes sobre la plusvalía municipal</h2>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Qué es la plusvalía municipal y cuándo se paga?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer"><p>La plusvalía municipal (IIVTNU — Impuesto sobre el Incremento de Valor de los Terrenos de Naturaleza Urbana) es un impuesto local que grava el aumento de valor del suelo urbano desde que lo adquiriste hasta que lo transmites.</p><p>Se paga cuando vendes, heredas o recibes en donación un inmueble urbano. El plazo es de <strong>30 días hábiles</strong> tras la venta, o <strong>6 meses prorrogables a 1 año</strong> en herencias.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Quién paga la plusvalía, el comprador o el vendedor?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer"><p>En una compraventa, la plusvalía la paga <strong>el vendedor</strong> (quien obtiene la ganancia). En herencias y donaciones, la paga el <strong>receptor</strong> del inmueble (heredero o donatario).</p><p>Aunque la ley indica quién es el sujeto pasivo, en la práctica muchas compraventas negocian quién asume este coste. Es un aspecto que debe quedar claro en el contrato.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Puedo estar exento de pagar plusvalía?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer"><p>Desde la reforma de 2021, si demuestras que <strong>no ha habido ganancia</strong> (vendiste por menos de lo que compraste), estás exento de plusvalía. También existen exenciones para la transmisión de la vivienda habitual de personas mayores de 65 años cuando reinvierten en renta vitalicia, o en determinadas daciones en pago.</p><p>Algunas operaciones entre familiares directos (en herencias) también pueden tener bonificaciones según el ayuntamiento.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Qué son los dos métodos de cálculo desde 2021?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer"><p>Tras la sentencia del Tribunal Constitucional, en 2021 se reformó el impuesto con dos métodos de cálculo:</p><p><strong>Método objetivo:</strong> Valor catastral del suelo × coeficiente estatal según años de tenencia. Sencillo y rápido.</p><p><strong>Método real:</strong> Ganancia real de la venta × proporción del suelo sobre el valor catastral total. Requiere escrituras de compra y venta.</p><p>El contribuyente puede elegir el método que resulte más favorable (menor cuota).</p></div>
+    </div>
+  </section>
+
+  <section class="related-section">
+    <h2>Calculadoras relacionadas</h2>
+    <div class="tools-grid">
+      <a href="/calculadora-hipoteca.html" class="tool-card"><span class="tc-emoji">🏠</span><div class="tc-name">Hipoteca</div><div class="tc-desc">Calcula la cuota si compras con financiación.</div></a>
+      <a href="/calculadora-cuanto-hipoteca.html" class="tool-card"><span class="tc-emoji">🔑</span><div class="tc-name">¿Cuánto puedo pedir?</div><div class="tc-desc">Descubre tu capacidad de compra.</div></a>
+      <a href="/calculadora-irpf.html" class="tool-card"><span class="tc-emoji">📊</span><div class="tc-name">IRPF</div><div class="tc-desc">La ganancia patrimonial también tributa en renta.</div></a>
+    </div>
+  </section>
+  <div class="ad-slot"><!-- AdSense --></div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div><div class="footer-logo">CalcuYa.</div><p class="footer-desc">Calculadoras financieras gratuitas para España.</p></div>
+      <div class="footer-col"><h4>Calculadoras</h4>
+        <a href="/calculadora-hipoteca.html">Hipoteca</a>
+        <a href="/calculadora-cuanto-hipoteca.html">¿Cuánto puedo pedir?</a>
+        <a href="/calculadora-plusvalia.html">Plusvalía municipal</a>
+        <a href="/calculadora-irpf.html">IRPF</a>
+        <a href="/calculadora-iva.html">IVA</a>
+        <a href="/calculadora-paro.html">Paro</a>
+      </div>
+      <div class="footer-col"><h4>Legal</h4>
+        <a href="/privacidad.html">Política de privacidad</a>
+        <a href="/aviso-legal.html">Aviso legal</a>
+        <a href="/cookies.html">Política de cookies</a>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© CalcuYa.</span><span>Cálculos orientativos. No constituyen asesoramiento fiscal.</span></div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('hamburger').addEventListener('click', () => document.getElementById('main-nav').classList.toggle('open'));
+function fmt(n) { return Math.round(n).toLocaleString('es-ES'); }
+function fmt2(n) { return n.toFixed(2).replace('.',','); }
+
+// Coeficientes máximos estatales post-reforma 2021
+const COEFICIENTES = {0:0.14,1:0.13,2:0.15,3:0.16,4:0.17,5:0.17,6:0.16,7:0.12,8:0.10,9:0.09,10:0.08,11:0.08,12:0.08,13:0.08,14:0.10,15:0.12,16:0.16,17:0.20,18:0.26,19:0.36};
+
+function getCoeficiente(anos) {
+  if (anos < 1) return COEFICIENTES[0];
+  const key = Math.min(Math.floor(anos), 19);
+  return COEFICIENTES[key] || 0.45; // 20+ años → 0.45
+}
+
+function calcularPlusvalia() {
+  const suelo     = parseFloat(document.getElementById('valor-catastral-suelo').value);
+  const anos      = parseFloat(document.getElementById('anos-tenencia').value) || 0;
+  const tipo      = parseFloat(document.getElementById('tipo-gravamen').value) / 100 || 0.28;
+  const compra    = parseFloat(document.getElementById('precio-compra').value) || 0;
+  const venta     = parseFloat(document.getElementById('precio-venta').value) || 0;
+
+  if (!suelo) { alert('Introduce el valor catastral del suelo.'); return; }
+
+  // Método objetivo
+  const coef = getCoeficiente(anos);
+  const baseObj = suelo * coef;
+
+  // Método real (si hay datos)
+  let baseReal = null;
+  let metodo = 'Objetivo';
+  if (compra > 0 && venta > 0) {
+    if (venta <= compra) {
+      // Venta a pérdidas: exento
+      document.getElementById('v-cuota').textContent  = '0,00';
+      document.getElementById('v-metodo').textContent = 'Exento (sin ganancia)';
+      document.getElementById('v-base').textContent   = '0,00';
+      document.getElementById('v-tipo').textContent   = (tipo*100).toFixed(1).replace('.',',');
+      document.getElementById('b-suelo').textContent  = fmt(suelo) + ' €';
+      document.getElementById('b-coef').textContent   = coef;
+      document.getElementById('b-base-obj').textContent = fmt2(baseObj) + ' €';
+      document.getElementById('b-base-final').textContent = '0 € (venta a pérdidas)';
+      document.getElementById('b-cuota-total').textContent = '0 €';
+      document.getElementById('row-real').style.display = 'none';
+      document.getElementById('results').classList.add('visible');
+      document.getElementById('results').scrollIntoView({behavior:'smooth',block:'nearest'});
+      return;
+    }
+    // Ganancia real × proporción suelo/total catastral
+    // Sin valor catastral total, usamos estimación: suelo ≈ 40% del total
+    const proporcionSuelo = 0.40;
+    baseReal = (venta - compra) * proporcionSuelo;
+    document.getElementById('row-real').style.display = 'flex';
+    document.getElementById('b-base-real').textContent = fmt2(baseReal) + ' €';
+  }
+
+  // Elegir el método más favorable (menor base)
+  let baseFinal = baseObj;
+  if (baseReal !== null && baseReal < baseObj) {
+    baseFinal = baseReal;
+    metodo = 'Real (más favorable)';
+  } else if (baseReal !== null) {
+    metodo = 'Objetivo (más favorable)';
+  }
+
+  const cuota = baseFinal * tipo;
+
+  document.getElementById('v-cuota').textContent    = fmt2(cuota);
+  document.getElementById('v-metodo').textContent   = metodo;
+  document.getElementById('v-base').textContent     = fmt2(baseFinal);
+  document.getElementById('v-tipo').textContent     = (tipo*100).toFixed(1).replace('.',',');
+  document.getElementById('b-suelo').textContent    = fmt(suelo) + ' €';
+  document.getElementById('b-coef').textContent     = coef + ' (' + Math.floor(anos) + ' años)';
+  document.getElementById('b-base-obj').textContent = fmt2(baseObj) + ' €';
+  document.getElementById('b-base-final').textContent = fmt2(baseFinal) + ' €';
+  document.getElementById('b-cuota-total').textContent = fmt2(cuota) + ' €';
+
+  const res = document.getElementById('results');
+  res.classList.add('visible');
+  res.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function shareWA() { window.open('https://wa.me/?text=' + encodeURIComponent('Calcula la plusvalía municipal: ' + window.location.href), '_blank'); }
+function copyLink() { navigator.clipboard.writeText(window.location.href).then(() => { const t = document.getElementById('share-toast'); t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2000); }); }
+function toggleFaq(btn) { const exp = btn.getAttribute('aria-expanded')==='true'; btn.setAttribute('aria-expanded',!exp); btn.nextElementSibling.classList.toggle('open'); }
+</script>
+<script src="/cookie-banner.js"></script>
+</body>
+</html>

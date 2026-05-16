@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador y Calculadora de Pensión de Jubilación — CalcuYa</title>
+  <meta name="description" content="Simulador y calculadora de pensión de jubilación gratis. Estima cuánto cobrarás de pensión según los años cotizados y tu salario. Basado en la Seguridad Social española vigente.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calcuya.org/calculadora-pension">
+  <meta property="og:title" content="Simulador y Calculadora de Pensión de Jubilación — CalcuYa">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://calcuya.org/og-image.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6RC7MNOCPD"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6RC7MNOCPD');</script>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">CalcuYa<span class="logo-dot">.</span></a>
+    <nav id="main-nav">
+      <a href="/calculadora-salario-neto.html">💼 Salario</a>
+      <a href="/calculadora-hipoteca.html">🏠 Hipoteca</a>
+      <a href="/calculadora-finiquito.html">📄 Finiquito</a>
+      <a href="/calculadora-irpf.html">📊 IRPF</a>
+      <a href="/calculadora-pension.html" class="active">👴 Pensión</a>
+      <a href="/calculadora-iva.html">🧾 IVA</a>
+      <a href="/calculadora-paro.html">📋 Paro</a>
+    </nav>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<main class="page-wrap">
+  <section class="page-hero">
+    <div class="breadcrumb"><a href="/">Inicio</a><span>›</span>Calculadora de pensión</div>
+    <div class="tool-badge">👴 Seguridad Social</div>
+    <h1 class="tool-title">Simulador y Calculadora<br>de Pensión de Jubilación</h1>
+    <p class="tool-subtitle">Estima cuánto cobrarás de pensión cuando te jubiles según tus años cotizados y tu salario. Basado en la normativa de la Seguridad Social española vigente.</p>
+  </section>
+
+  <div class="ad-slot"><!-- AdSense --></div>
+
+  <div class="calc-card">
+    <div class="calc-form">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="salario-pension">Salario bruto mensual actual</label>
+          <div class="input-wrap"><span class="input-prefix">€</span>
+            <input type="number" autocomplete="off" id="salario-pension" class="has-prefix" placeholder="2500" min="0">
+          </div>
+          <small>Se usa como referencia de tu base de cotización</small>
+        </div>
+        <div class="form-group">
+          <label for="pagas-pension">Número de pagas</label>
+          <select id="pagas-pension">
+            <option value="12">12 pagas</option>
+            <option value="14" selected>14 pagas</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="anos-cotizados">Años cotizados a la jubilación</label>
+          <div class="input-wrap">
+            <input type="number" autocomplete="off" id="anos-cotizados" class="has-suffix" placeholder="35" min="1" max="50" value="35">
+            <span class="input-suffix">años</span>
+          </div>
+          <small>Total de años que habrás cotizado al jubilarte</small>
+        </div>
+        <div class="form-group">
+          <label for="edad-jubilacion">Edad de jubilación</label>
+          <div class="input-wrap">
+            <input type="number" autocomplete="off" id="edad-jubilacion" class="has-suffix" placeholder="66" min="60" max="72" value="66">
+            <span class="input-suffix">años</span>
+          </div>
+          <small>Ordinaria: 66 años y 8 meses en 2025</small>
+        </div>
+        <button class="btn-calc" onclick="calcularPension()">Calcular mi pensión estimada</button>
+      </div>
+    </div>
+
+    <div class="results-section" id="results">
+      <div class="results-title">Tu pensión estimada</div>
+      <div class="results-grid">
+        <div class="result-box highlight">
+          <div class="result-label">Pensión mensual bruta</div>
+          <div class="result-value"><small>€</small><span id="v-pension">—</span></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">% del último salario</div>
+          <div class="result-value"><span id="v-pct">—</span><small>%</small></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Pensión mensual neta (est.)</div>
+          <div class="result-value"><small>€</small><span id="v-neta">—</span></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Porcentaje aplicado</div>
+          <div class="result-value"><span id="v-pct-aplicado">—</span><small>%</small></div>
+        </div>
+      </div>
+
+      <div class="breakdown">
+        <div class="breakdown-row"><span class="label">Base reguladora mensual (estimada)</span><span class="value" id="b-base">—</span></div>
+        <div class="breakdown-row"><span class="label">Años cotizados</span><span class="value" id="b-anos">—</span></div>
+        <div class="breakdown-row"><span class="label">Porcentaje por años cotizados</span><span class="value green" id="b-pct">—</span></div>
+        <div class="breakdown-row"><span class="label">Pensión máxima (límite SS)</span><span class="value" id="b-max">—</span></div>
+        <div class="breakdown-row total"><span class="label">Pensión bruta mensual</span><span class="value green" id="b-pension">—</span></div>
+      </div>
+
+      <!-- Barra visual de cobertura -->
+      <div style="margin-top:14px; background:var(--white); border-radius:var(--radius); border:1px solid var(--border); padding:16px 18px;">
+        <p style="font-size:13px; font-weight:600; margin-bottom:10px;">Tu pensión cubre este % de tu último salario neto</p>
+        <div style="display:flex; height:28px; border-radius:6px; overflow:hidden; margin-bottom:8px; background:var(--border);">
+          <div id="bar-cobertura" style="background:var(--brand); transition:width .5s; display:flex; align-items:center; justify-content:center; font-size:12px; color:#fff; font-weight:600;"></div>
+        </div>
+        <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-muted);">
+          <span>0%</span><span>50%</span><span>100%</span>
+        </div>
+      </div>
+
+      <div class="info-box" style="margin-top:14px">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Estimación <strong>orientativa</strong>. La pensión real depende de tus bases de cotización reales de los últimos 25 años, CCAA, integración de lagunas y posibles complementos. Consulta tu vida laboral en <a href="https://sede.seg-social.gob.es" target="_blank" rel="noopener">sede.seg-social.gob.es</a>.
+      </div>
+
+      <div class="share-box">
+        <p>¿Te ha sido útil?</p>
+        <button class="share-btn wa" onclick="shareWA()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Enviar por WhatsApp
+        </button>
+        <button class="share-btn cp" onclick="copyLink()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          Copiar enlace
+        </button>
+      </div>
+      <div class="share-toast" id="share-toast">¡Enlace copiado!</div>
+    </div>
+  </div>
+
+  <div class="ad-slot"><!-- AdSense --></div>
+
+  <section class="faq-section">
+    <h2>Preguntas frecuentes sobre la pensión de jubilación</h2>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Cuántos años hay que cotizar para cobrar el 100% de la pensión?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer"><p>Con la reforma de pensiones en España, el número de años necesarios para cobrar el 100% se va aumentando gradualmente. En 2025 son necesarios <strong>36 años y 10 meses</strong> cotizados para acceder al 100% de la base reguladora. Este requisito llegará a <strong>38 años y 3 meses</strong> en 2027.</p><p>Con 15 años cotizados (el mínimo) solo recibes el 50%. Cada mes adicional suma entre 0,18% y 0,19% hasta llegar al 100%.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Qué es la base reguladora de la pensión?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer"><p>La base reguladora es el promedio de tus bases de cotización de los <strong>últimos 25 años</strong> trabajados, actualizado por el IPC. Es sobre este importe sobre el que se aplica el porcentaje por años cotizados para calcular tu pensión.</p><p>Si tus últimos 25 años no están completos, se integran con bases mínimas las lagunas de cotización (hasta 48 meses al 100% y el resto al 50%).</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿A qué edad me puedo jubilar en España?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer"><p>La edad ordinaria de jubilación en 2025 es de <strong>66 años y 8 meses</strong>, y llegará a 67 años en 2027. Si tienes 38 años y 3 meses cotizados puedes jubilarte a los 65 años.</p><p>También existe la <strong>jubilación anticipada voluntaria</strong> (hasta 4 años antes) con penalización, y la <strong>jubilación anticipada involuntaria</strong> (despido, ERE) con menor penalización. Jubilarse después de la edad ordinaria aporta un bonus del 4% por cada año adicional.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Cómo puedo consultar mis cotizaciones reales?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer"><p>Puedes consultar tu <strong>informe de vida laboral</strong> en la Sede Electrónica de la Seguridad Social (sede.seg-social.gob.es) con Cl@ve, DNI electrónico o certificado digital. También puedes pedirlo por teléfono (901 50 20 50).</p><p>El informe muestra todos tus períodos de cotización, las bases cotizadas y el tipo de contrato. Es fundamental para hacer una estimación realista de tu futura pensión.</p></div>
+    </div>
+  </section>
+
+  <section class="related-section">
+    <h2>Calculadoras relacionadas</h2>
+    <div class="tools-grid">
+      <a href="/calculadora-salario-neto.html" class="tool-card"><span class="tc-emoji">💼</span><div class="tc-name">Salario neto</div><div class="tc-desc">Cuánto cobras ahora descontando IRPF y SS.</div></a>
+      <a href="/calculadora-paro.html" class="tool-card"><span class="tc-emoji">📋</span><div class="tc-name">Prestación por paro</div><div class="tc-desc">Cuánto cobras si quedas desempleado.</div></a>
+      <a href="/calculadora-irpf.html" class="tool-card"><span class="tc-emoji">📊</span><div class="tc-name">IRPF</div><div class="tc-desc">La pensión también tributa — calcula cuánto.</div></a>
+    </div>
+  </section>
+  <div class="ad-slot"><!-- AdSense --></div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div><div class="footer-logo">CalcuYa.</div><p class="footer-desc">Calculadoras financieras gratuitas para España.</p></div>
+      <div class="footer-col"><h4>Calculadoras</h4>
+        <a href="/calculadora-salario-neto.html">Salario neto</a>
+        <a href="/calculadora-hipoteca.html">Hipoteca</a>
+        <a href="/calculadora-irpf.html">IRPF</a>
+        <a href="/calculadora-pension.html">Pensión de jubilación</a>
+        <a href="/calculadora-iva.html">IVA</a>
+        <a href="/calculadora-paro.html">Paro</a>
+      </div>
+      <div class="footer-col"><h4>Legal</h4>
+        <a href="/privacidad.html">Política de privacidad</a>
+        <a href="/aviso-legal.html">Aviso legal</a>
+        <a href="/cookies.html">Política de cookies</a>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© CalcuYa.</span><span>Cálculos orientativos. No constituyen asesoramiento financiero.</span></div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('hamburger').addEventListener('click', () => document.getElementById('main-nav').classList.toggle('open'));
+function fmt2(n) { return n.toFixed(2).replace('.',','); }
+
+function calcularPension() {
+  const sal    = parseFloat(document.getElementById('salario-pension').value);
+  const pagas  = parseInt(document.getElementById('pagas-pension').value);
+  const anos   = parseFloat(document.getElementById('anos-cotizados').value);
+  const edad   = parseInt(document.getElementById('edad-jubilacion').value);
+  if (!sal || !anos) { alert('Rellena todos los campos.'); return; }
+  if (anos < 15) { alert('Necesitas al menos 15 años cotizados para tener derecho a pensión.'); return; }
+
+  // Base reguladora mensual estimada (promedio últimos 25 años ≈ salario actual)
+  const brutoAnual = sal * pagas;
+  const baseRegMes = brutoAnual / 14; // 14 pagas equivale a base mensual normalizada
+
+  // Porcentaje según años cotizados (fórmula SS vigente)
+  // 15 años = 50%, meses 1-248 adicionales = +0.19%/mes, meses 249+ = +0.18%/mes hasta 100%
+  const mesesCotizados = Math.round(anos * 12);
+  const mesesExtra = mesesCotizados - 180; // meses más allá de 15 años
+
+  let pct = 50;
+  if (mesesExtra > 0) {
+    const fase1 = Math.min(mesesExtra, 248);
+    pct += fase1 * 0.19;
+    const fase2 = Math.max(0, mesesExtra - 248);
+    pct += fase2 * 0.18;
+  }
+  pct = Math.min(pct, 100);
+
+  // Límites SS vigentes
+  const pensionMax = 3267; // €/mes 2025
+  const pensionMin = 750;  // €/mes aprox, sin cónyuge a cargo
+
+  let pension = baseRegMes * (pct / 100);
+  pension = Math.min(pension, pensionMax);
+  pension = Math.max(pension, Math.min(pensionMin, pension > 0 ? pension : 0));
+
+  // Retención IRPF aproximada pensión (≈8-12% para pensiones medias)
+  const retencion = pension > 2000 ? 0.14 : pension > 1500 ? 0.10 : 0.07;
+  const pensionNeta = pension * (1 - retencion);
+
+  // % cobertura respecto al último salario neto
+  const salNeto = sal * (1 - 0.0635) * (1 - 0.15); // aprox
+  const cobertura = Math.min((pensionNeta / salNeto) * 100, 100);
+
+  document.getElementById('v-pension').textContent       = fmt2(pension);
+  document.getElementById('v-pct').textContent           = Math.round(cobertura);
+  document.getElementById('v-neta').textContent          = fmt2(pensionNeta);
+  document.getElementById('v-pct-aplicado').textContent  = pct.toFixed(1).replace('.',',');
+  document.getElementById('b-base').textContent          = fmt2(baseRegMes) + ' €/mes';
+  document.getElementById('b-anos').textContent          = anos + ' años';
+  document.getElementById('b-pct').textContent           = pct.toFixed(1).replace('.',',') + '%';
+  document.getElementById('b-max').textContent           = '3.267 €/mes';
+  document.getElementById('b-pension').textContent       = fmt2(pension) + ' €/mes';
+
+  const bar = document.getElementById('bar-cobertura');
+  bar.style.width = Math.round(cobertura) + '%';
+  bar.textContent = Math.round(cobertura) + '%';
+
+  const res = document.getElementById('results');
+  res.classList.add('visible');
+  res.scrollIntoView({ behavior:'smooth', block:'nearest' });
+}
+function shareWA() { window.open('https://wa.me/?text=' + encodeURIComponent('Calcula tu futura pensión: ' + window.location.href), '_blank'); }
+function copyLink() { navigator.clipboard.writeText(window.location.href).then(() => { const t = document.getElementById('share-toast'); t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2000); }); }
+function toggleFaq(btn) { const exp = btn.getAttribute('aria-expanded')==='true'; btn.setAttribute('aria-expanded',!exp); btn.nextElementSibling.classList.toggle('open'); }
+</script>
+<script src="/cookie-banner.js"></script>
+</body>
+</html>
