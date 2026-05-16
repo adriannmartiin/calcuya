@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora IRPF 2025 | Cuota y Retención del Impuesto — CalcuYa</title>
+  <meta name="description" content="Calcula tu cuota y retención del IRPF 2025 en España. Tramos actualizados, mínimos personales y familiares incluidos. Resultado inmediato, gratis y sin registro.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calcuya.es/calculadora-irpf">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta property="og:image" content="https://calcuya.es/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Calculadora IRPF 2025",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "description": "Calcula tu cuota y retención del IRPF 2025 en España con los tramos estatales actualizados."
+  }
+  </script>
+  <!-- Google Analytics: sustituye G-XXXXXXXXXX por tu Measurement ID -->
+  <!-- Crea tu propiedad en analytics.google.com > Administración > Crear propiedad -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script> -->
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">CalcuYa<span class="logo-dot">.</span></a>
+    <nav id="main-nav">
+      <a href="/calculadora-salario-neto.html">💼 Salario neto</a>
+      <a href="/calculadora-hipoteca.html">🏠 Hipoteca</a>
+      <a href="/calculadora-finiquito.html">📄 Finiquito</a>
+      <a href="/calculadora-irpf.html" class="active">📊 IRPF</a>
+      <a href="/calculadora-interes-compuesto.html">📈 Interés compuesto</a>
+    </nav>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<main class="page-wrap">
+
+  <section class="page-hero">
+    <div class="breadcrumb"><a href="/">Inicio</a><span>›</span>Calculadora IRPF</div>
+    <div class="tool-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      Tramos IRPF actualizados 2025
+    </div>
+    <h1 class="tool-title">Calculadora<br>de IRPF</h1>
+    <p class="tool-subtitle">Estima tu cuota del Impuesto sobre la Renta de las Personas Físicas en España 2025. Incluye mínimos personales y familiares.</p>
+  </section>
+
+  <div class="ad-slot">Espacio publicitario</div>
+
+  <div class="calc-card">
+    <div class="calc-form">
+      <div class="form-grid">
+
+        <div class="form-group full">
+          <label for="rendimientos">Rendimientos del trabajo netos (salario bruto − SS)</label>
+          <div class="input-wrap">
+            <span class="input-prefix">€</span>
+            <input type="number" id="rendimientos" class="has-prefix" placeholder="28000" min="0">
+          </div>
+          <small>Si no sabes el neto de SS, introduce el salario bruto anual; la calculadora ajusta automáticamente.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="situacion">Situación personal</label>
+          <select id="situacion">
+            <option value="soltero" selected>Soltero/a sin hijos</option>
+            <option value="casado">Casado/a (tributación individual)</option>
+            <option value="viudo">Viudo/a con hijos</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="hijos-irpf">Hijos o descendientes</label>
+          <select id="hijos-irpf">
+            <option value="0" selected>Sin hijos</option>
+            <option value="1">1 hijo menor de 25 años</option>
+            <option value="2">2 hijos</option>
+            <option value="3">3 hijos</option>
+            <option value="4">4 o más hijos</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="discapacidad">Discapacidad reconocida</label>
+          <select id="discapacidad">
+            <option value="0">Sin discapacidad</option>
+            <option value="33">33% – 65%: reducción 3.000€</option>
+            <option value="65">65% o más: reducción 9.000€</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="pagas-irpf">Número de pagas</label>
+          <select id="pagas-irpf">
+            <option value="12">12 pagas</option>
+            <option value="14" selected>14 pagas</option>
+          </select>
+        </div>
+
+        <button class="btn-calc" onclick="calcularIRPF()">Calcular IRPF</button>
+      </div>
+    </div>
+
+    <div class="results-section" id="results">
+      <div class="results-title">Tu estimación de IRPF 2025</div>
+      <div class="results-grid">
+        <div class="result-box highlight">
+          <div class="result-label">Cuota íntegra IRPF</div>
+          <div class="result-value"><small>€</small><span id="v-cuota">—</span></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Retención mensual</div>
+          <div class="result-value"><small>€</small><span id="v-retencion-mes">—</span></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Porcentaje retención</div>
+          <div class="result-value"><span id="v-pct">—</span><small>%</small></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Tipo marginal</div>
+          <div class="result-value"><span id="v-marginal">—</span><small>%</small></div>
+        </div>
+      </div>
+
+      <div class="breakdown">
+        <div class="breakdown-row">
+          <span class="label">Rendimientos del trabajo</span>
+          <span class="value" id="b-rend">—</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="label">Reducción por rendimientos del trabajo</span>
+          <span class="value green" id="b-reduccion">—</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="label">Mínimo personal</span>
+          <span class="value green" id="b-personal">—</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="label">Mínimo familiar (hijos)</span>
+          <span class="value green" id="b-familiar">—</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="label">Reducción discapacidad</span>
+          <span class="value green" id="b-discap">—</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="label">Base imponible general</span>
+          <span class="value" id="b-base">—</span>
+        </div>
+        <div class="breakdown-row total">
+          <span class="label">Cuota íntegra IRPF</span>
+          <span class="value red" id="b-cuota">—</span>
+        </div>
+      </div>
+
+      <!-- Tramos visuales -->
+      <div id="tramos-viz" style="margin-top:16px; background:var(--white); border-radius:var(--radius); border:1px solid var(--border); padding:16px;">
+        <p style="font-size:13px; font-weight:600; margin-bottom:12px; color:var(--text);">Tramos IRPF 2025 aplicados</p>
+        <div id="tramos-bars"></div>
+      </div>
+
+      <div class="info-box">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Cálculo basado en tramos estatales 2025. El IRPF final incluye el tipo autonómico que varía según la comunidad autónoma. Esta calculadora usa tipos medios. Para el cálculo exacto usa el simulador de la <strong>AEAT</strong>.
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-slot">Espacio publicitario</div>
+
+  <section class="faq-section">
+    <h2>Preguntas frecuentes sobre el IRPF</h2>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Qué son los tramos del IRPF?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>El IRPF es un impuesto progresivo dividido en tramos. Cada tramo tiene un tipo impositivo y solo se aplica a la parte de la renta que cae dentro de ese tramo.</p>
+        <p>Esto significa que si tu base imponible es de 25.000€, NO pagas el 30% sobre los 25.000€ enteros. Pagas el 19% sobre los primeros 12.450€, el 24% sobre los siguientes 7.750€, y el 30% solo sobre los últimos 4.800€.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Qué es el mínimo personal y familiar?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>El mínimo personal y familiar es la cantidad de renta que queda exenta del IRPF porque se considera necesaria para cubrir las necesidades básicas del contribuyente y su familia.</p>
+        <p>En 2025 el mínimo personal es de <strong>5.550€</strong>. Si tienes hijos, se añade el mínimo por descendientes: 2.400€ por el primero, 2.700€ por el segundo, 4.000€ por el tercero y 4.500€ por cada hijo adicional.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Cuándo estoy obligado a hacer la declaración de la renta?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>Están obligados a declarar los contribuyentes con rendimientos del trabajo superiores a <strong>22.000€ anuales</strong> si tienen un solo pagador (o 15.000€ si tienen dos o más pagadores y el segundo supera los 1.500€).</p>
+        <p>También están obligados quienes tengan rendimientos del capital mobiliario o ganancias patrimoniales superiores a 1.600€, o quienes tengan rentas inmobiliarias imputadas superiores a 1.000€.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Cuál es la diferencia entre tipo marginal y tipo efectivo?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p><strong>Tipo marginal:</strong> el porcentaje que se aplica al último euro que ganas. Si ganas 35.200€, tu tipo marginal es del 30%. Cualquier ingreso adicional tributaría al 37%.</p>
+        <p><strong>Tipo efectivo:</strong> el porcentaje real de impuesto que pagas sobre el total de tu renta. Siempre es menor que el marginal porque los tramos inferiores se gravan a tipos más bajos. Esta calculadora te muestra la retención porcentual, que equivale aproximadamente al tipo efectivo.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ad-slot">Espacio publicitario</div>
+
+  <section class="related-section">
+    <h2>Otras calculadoras relacionadas</h2>
+    <div class="tools-grid">
+      <a href="/calculadora-salario-neto.html" class="tool-card"><span class="tc-emoji">💼</span><div class="tc-name">Salario neto</div><div class="tc-desc">Calcula tu neto final incluyendo SS e IRPF.</div></a>
+      <a href="/calculadora-finiquito.html" class="tool-card"><span class="tc-emoji">📄</span><div class="tc-name">Finiquito</div><div class="tc-desc">Calcula tu liquidación laboral.</div></a>
+      <a href="/calculadora-hipoteca.html" class="tool-card"><span class="tc-emoji">🏠</span><div class="tc-name">Hipoteca</div><div class="tc-desc">Simula tu cuota mensual.</div></a>
+      <a href="/calculadora-interes-compuesto.html" class="tool-card"><span class="tc-emoji">📈</span><div class="tc-name">Interés compuesto</div><div class="tc-desc">Haz crecer tus ahorros.</div></a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div><div class="footer-logo">CalcuYa.</div><p class="footer-desc">Calculadoras financieras gratuitas para España.</p></div>
+      <div class="footer-col">
+        <h4>Calculadoras</h4>
+        <a href="/calculadora-salario-neto.html">Salario neto</a>
+        <a href="/calculadora-hipoteca.html">Hipoteca</a>
+        <a href="/calculadora-finiquito.html">Finiquito</a>
+        <a href="/calculadora-irpf.html">IRPF</a>
+        <a href="/calculadora-interes-compuesto.html">Interés compuesto</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="/privacidad.html">Política de privacidad</a>
+        <a href="/aviso-legal.html">Aviso legal</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 CalcuYa.</span>
+      <span>Cálculos orientativos. No constituyen asesoramiento fiscal.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const ham = document.getElementById('hamburger');
+const nav = document.getElementById('main-nav');
+ham.addEventListener('click', () => nav.classList.toggle('open'));
+
+function fmt(n) { return Math.round(n).toLocaleString('es-ES'); }
+function fmt2(n) { return n.toFixed(2).replace('.',','); }
+
+const TRAMOS = [
+  { desde:0,      hasta:12450,   tipo:0.19, label:'19%' },
+  { desde:12450,  hasta:20200,   tipo:0.24, label:'24%' },
+  { desde:20200,  hasta:35200,   tipo:0.30, label:'30%' },
+  { desde:35200,  hasta:60000,   tipo:0.37, label:'37%' },
+  { desde:60000,  hasta:300000,  tipo:0.45, label:'45%' },
+  { desde:300000, hasta:Infinity,tipo:0.47, label:'47%' }
+];
+
+function calcCuotaTramos(base) {
+  let cuota = 0;
+  const detalle = [];
+  for (const t of TRAMOS) {
+    if (base <= t.desde) break;
+    const chunk = Math.min(base, t.hasta) - t.desde;
+    const pago  = chunk * t.tipo;
+    cuota += pago;
+    detalle.push({ label: t.label, chunk, pago, tipo: t.tipo });
+  }
+  return { cuota, detalle };
+}
+
+function getMarginal(base) {
+  for (const t of TRAMOS) {
+    if (base <= t.hasta) return t.tipo * 100;
+  }
+  return 47;
+}
+
+function calcularIRPF() {
+  const rend    = parseFloat(document.getElementById('rendimientos').value);
+  const sit     = document.getElementById('situacion').value;
+  const hijos   = parseInt(document.getElementById('hijos-irpf').value);
+  const discap  = parseInt(document.getElementById('discapacidad').value);
+  const pagas   = parseInt(document.getElementById('pagas-irpf').value);
+
+  if (!rend || rend <= 0) { alert('Introduce los rendimientos.'); return; }
+
+  // Reducción por rendimientos del trabajo (Ley IRPF art. 20)
+  let reduccionRT = 0;
+  if (rend <= 13115) reduccionRT = 5565;
+  else if (rend <= 16825) reduccionRT = 5565 - 1.5 * (rend - 13115);
+  else reduccionRT = 0;
+  reduccionRT = Math.max(0, reduccionRT);
+
+  // Mínimo personal
+  const minPersonales = { soltero: 5550, casado: 5550, viudo: 5550 };
+  const minPersonal = minPersonales[sit];
+
+  // Mínimo por descendientes
+  const minHijosArr = [0, 2400, 5100, 9100, 13600];
+  const minFamiliar = hijos > 0 ? (hijos <= 4 ? minHijosArr[hijos] : minHijosArr[4] + 4500 * (hijos - 4)) : 0;
+
+  // Discapacidad
+  const discapArr = { 0: 0, 33: 3000, 65: 9000 };
+  const redDiscap = discapArr[discap] || 0;
+
+  const totalMinimos = minPersonal + minFamiliar + redDiscap;
+
+  // Base imponible
+  const baseLiquidable = Math.max(0, rend - reduccionRT);
+  const baseImponible  = Math.max(0, baseLiquidable - totalMinimos);
+
+  const { cuota, detalle } = calcCuotaTramos(baseImponible);
+  const pct = rend > 0 ? (cuota / rend * 100) : 0;
+  const marginal = getMarginal(baseImponible);
+
+  // Render summary
+  document.getElementById('v-cuota').textContent        = fmt2(cuota);
+  document.getElementById('v-retencion-mes').textContent= fmt2(cuota / pagas);
+  document.getElementById('v-pct').textContent          = pct.toFixed(1).replace('.',',');
+  document.getElementById('v-marginal').textContent     = marginal.toFixed(0);
+
+  document.getElementById('b-rend').textContent       = fmt(rend) + ' €';
+  document.getElementById('b-reduccion').textContent  = '−' + fmt(reduccionRT) + ' €';
+  document.getElementById('b-personal').textContent   = '−' + fmt(minPersonal) + ' €';
+  document.getElementById('b-familiar').textContent   = minFamiliar > 0 ? '−' + fmt(minFamiliar) + ' €' : '0 €';
+  document.getElementById('b-discap').textContent     = redDiscap > 0 ? '−' + fmt(redDiscap) + ' €' : '0 €';
+  document.getElementById('b-base').textContent       = fmt(baseImponible) + ' €';
+  document.getElementById('b-cuota').textContent      = fmt2(cuota) + ' €';
+
+  // Tramos visualization
+  const barsEl = document.getElementById('tramos-bars');
+  barsEl.innerHTML = '';
+  const colors = ['#d1fae5','#a7f3d0','#6ee7b7','#34d399','#059669','#047857'];
+  detalle.forEach((d, i) => {
+    const row = document.createElement('div');
+    row.style = 'margin-bottom:8px;';
+    const pctBar = Math.min(100, (d.chunk / (rend || 1)) * 100);
+    row.innerHTML = `
+      <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px;">
+        <span style="color:var(--text-muted)">Tramo ${d.label}: ${fmt(d.chunk)} €</span>
+        <span style="font-weight:600;color:var(--text)">${fmt2(d.pago)} €</span>
+      </div>
+      <div style="height:8px;background:var(--border);border-radius:4px;overflow:hidden;">
+        <div style="height:100%;width:${pctBar}%;background:${colors[i]||'#059669'};border-radius:4px;"></div>
+      </div>`;
+    barsEl.appendChild(row);
+  });
+  if (detalle.length === 0) barsEl.innerHTML = '<p style="font-size:13px;color:var(--text-muted)">Con estos datos tu base imponible es 0€ — estás por debajo del mínimo personal.</p>';
+
+  const res = document.getElementById('results');
+  res.classList.add('visible');
+  res.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function toggleFaq(btn) {
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', !expanded);
+  btn.nextElementSibling.classList.toggle('open');
+}
+</script>
+  <script src="/cookie-banner.js"></script>
+</body>
+</html>

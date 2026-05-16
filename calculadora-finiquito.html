@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Finiquito 2025 | Despido e Indemnización — CalcuYa</title>
+  <meta name="description" content="Calcula tu finiquito en España 2025. Descubre cuánto te corresponde por vacaciones, pagas extras e indemnización en caso de despido. Gratis y actualizado.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calcuya.es/calculadora-finiquito">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta property="og:image" content="https://calcuya.es/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Calculadora de Finiquito 2025",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "description": "Calcula tu finiquito en España. Vacaciones, pagas extras e indemnización por despido."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuánto me corresponde de finiquito?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El finiquito incluye los días de vacaciones no disfrutados, la parte proporcional de las pagas extras y, si aplica, la indemnización por despido. La indemnización es de 33 días por año trabajado (máx. 24 mensualidades) en despido improcedente, y 20 días por año en despido objetivo."
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- Google Analytics: sustituye G-XXXXXXXXXX por tu Measurement ID -->
+  <!-- Crea tu propiedad en analytics.google.com > Administración > Crear propiedad -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script> -->
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">CalcuYa<span class="logo-dot">.</span></a>
+    <nav id="main-nav">
+      <a href="/calculadora-salario-neto.html">💼 Salario neto</a>
+      <a href="/calculadora-hipoteca.html">🏠 Hipoteca</a>
+      <a href="/calculadora-finiquito.html" class="active">📄 Finiquito</a>
+      <a href="/calculadora-irpf.html">📊 IRPF</a>
+      <a href="/calculadora-prestamo-personal.html">💰 Préstamo</a>
+      <a href="/calculadora-interes-compuesto.html">📈 Interés compuesto</a>
+    </nav>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<main class="page-wrap">
+
+  <section class="page-hero">
+    <div class="breadcrumb"><a href="/">Inicio</a><span>›</span>Calculadora de Finiquito</div>
+    <div class="tool-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      Calculadora laboral 2025
+    </div>
+    <h1 class="tool-title">Calculadora de<br>Finiquito</h1>
+    <p class="tool-subtitle">Calcula cuánto te corresponde al terminar un contrato laboral en España: vacaciones pendientes, pagas extras e indemnización por despido.</p>
+  </section>
+
+  <div class="ad-slot">Espacio publicitario</div>
+
+  <div class="calc-card">
+    <div class="calc-form">
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label for="salario-mes">Salario bruto mensual</label>
+          <div class="input-wrap">
+            <span class="input-prefix">€</span>
+            <input type="number" id="salario-mes" class="has-prefix" placeholder="2000" min="0">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="pagas">Número de pagas anuales</label>
+          <select id="pagas">
+            <option value="12">12 pagas</option>
+            <option value="14" selected>14 pagas</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="fecha-inicio">Fecha de inicio del contrato</label>
+          <input type="date" id="fecha-inicio" style="height:46px; background:var(--bg); border:1.5px solid var(--border); border-radius:8px; font-family:'DM Sans',sans-serif; font-size:15px; padding:0 12px; width:100%;">
+        </div>
+
+        <div class="form-group">
+          <label for="fecha-fin">Fecha de finalización del contrato</label>
+          <input type="date" id="fecha-fin" style="height:46px; background:var(--bg); border:1.5px solid var(--border); border-radius:8px; font-family:'DM Sans',sans-serif; font-size:15px; padding:0 12px; width:100%;">
+        </div>
+
+        <div class="form-group">
+          <label for="vacaciones-anuales">Días de vacaciones anuales (convenio)</label>
+          <div class="input-wrap">
+            <input type="number" id="vacaciones-anuales" class="has-suffix" placeholder="22" min="0" max="365" value="22">
+            <span class="input-suffix">días</span>
+          </div>
+          <small>Mínimo legal: 22 días hábiles/año</small>
+        </div>
+
+        <div class="form-group">
+          <label for="vacaciones-disfrutadas">Días de vacaciones ya disfrutados este año</label>
+          <div class="input-wrap">
+            <input type="number" id="vacaciones-disfrutadas" class="has-suffix" placeholder="0" min="0" max="365" value="0">
+            <span class="input-suffix">días</span>
+          </div>
+        </div>
+
+        <div class="form-group full">
+          <label for="tipo-despido">Tipo de finalización del contrato</label>
+          <select id="tipo-despido">
+            <option value="ninguna">Baja voluntaria / fin de contrato</option>
+            <option value="procedente">Despido objetivo / procedente (20 días/año)</option>
+            <option value="improcedente">Despido improcedente (33 días/año, máx. 24 meses)</option>
+            <option value="temporal">Fin de contrato temporal (12 días/año)</option>
+          </select>
+        </div>
+
+        <button class="btn-calc" onclick="calcularFiniquito()">Calcular finiquito</button>
+      </div>
+    </div>
+
+    <div class="results-section" id="results">
+      <div class="results-title">Tu finiquito estimado</div>
+      <div class="results-grid">
+        <div class="result-box highlight">
+          <div class="result-label">Total finiquito</div>
+          <div class="result-value"><small>€</small><span id="v-total">—</span></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Vacaciones pendientes</div>
+          <div class="result-value"><small>€</small><span id="v-vacaciones">—</span></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Pagas extras proporcionales</div>
+          <div class="result-value"><small>€</small><span id="v-pagas">—</span></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Indemnización</div>
+          <div class="result-value"><small>€</small><span id="v-indem">—</span></div>
+        </div>
+      </div>
+
+      <div class="breakdown">
+        <div class="breakdown-row">
+          <span class="label">Tiempo trabajado</span>
+          <span class="value" id="b-tiempo">—</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="label">Salario diario</span>
+          <span class="value" id="b-diario">—</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="label">Días vacaciones pendientes</span>
+          <span class="value" id="b-dias-vac">—</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="label">Vacaciones pendientes (€)</span>
+          <span class="value green" id="b-vac-eur">—</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="label">Pagas extras proporcionales</span>
+          <span class="value green" id="b-pagas-eur">—</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="label">Indemnización por despido</span>
+          <span class="value green" id="b-indem-eur">—</span>
+        </div>
+        <div class="breakdown-row total">
+          <span class="label">Total finiquito bruto</span>
+          <span class="value green" id="b-total">—</span>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Este cálculo es <strong>orientativo</strong>. La indemnización puede estar exenta de IRPF hasta los límites legales. Consulta a un abogado laboralista si la cantidad te parece incorrecta o si quieres impugnar el despido.
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-slot">Espacio publicitario</div>
+
+  <section class="faq-section">
+    <h2>Preguntas frecuentes sobre el finiquito</h2>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Qué incluye el finiquito en España?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>El finiquito es la liquidación final que recibe el trabajador al terminar su relación laboral. Incluye:</p>
+        <p>1. <strong>Vacaciones no disfrutadas:</strong> los días de vacaciones que tenías pendientes se pagan económicamente.<br>2. <strong>Parte proporcional de pagas extras:</strong> si tienes 14 pagas y llevas 6 meses del año trabajados, recibes la mitad de una paga extra.<br>3. <strong>Indemnización:</strong> solo en casos de despido (no en baja voluntaria), y el importe depende del tipo de despido.<br>4. <strong>Días pendientes del mes:</strong> el salario de los días del mes en curso no cobrados aún.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Cuánta indemnización me corresponde por despido improcedente?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>En el despido improcedente (el empleador despide sin causa justificada), la indemnización es de <strong>33 días de salario por año trabajado</strong>, con un máximo de 24 mensualidades.</p>
+        <p>Ejemplo: 5 años trabajados con salario mensual de 2.000€ → Salario diario: 2.000/30 = 66,67€ → Indemnización: 33 × 5 × 66,67 = 11.000€</p>
+        <p>Los primeros 180.000€ de indemnización por despido están exentos de IRPF (la exención puede ser total si el importe no supera los días legalmente establecidos).</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Si me voy voluntariamente, tengo derecho a indemnización?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p><strong>No</strong>. En caso de baja voluntaria no existe indemnización. Solo recibes las vacaciones pendientes y las pagas extras proporcionales. Sin embargo, podrías tener derecho a prestación por desempleo si el cese fue motivado por causas objetivas del empleador (acoso laboral, modificación sustancial de condiciones, traslado, etc.), en cuyo caso se trataría de una dimisión forzada regulada en el artículo 50 del Estatuto de los Trabajadores.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿En cuántos días debe abonarse el finiquito?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>La ley no establece un plazo específico, pero la práctica habitual es recibirlo el <strong>mismo día que termina la relación laboral</strong>. Si el empleador tarda más de lo razonable (en general no más de una semana), puede incurrir en mora e intereses de demora.</p>
+        <p>Si el empleador no paga el finiquito, puedes reclamarlo ante el Juzgado de lo Social o mediante conciliación previa en el SMAC (Servicio de Mediación, Arbitraje y Conciliación).</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿La indemnización por despido tributa en el IRPF?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>La indemnización por despido improcedente está <strong>exenta de IRPF</strong> hasta el importe legalmente establecido (33 días por año con un máximo de 24 mensualidades). Lo que exceda de esa cantidad sí tributa.</p>
+        <p>Las indemnizaciones por despido objetivo (20 días/año) también están exentas hasta su importe legal. Sin embargo, la empresa NO está obligada a hacerte retención en la nómina de finiquito sobre la parte exenta.</p>
+        <p>Los atrasos de salario y las vacaciones pendientes sí tributan normalmente como rendimientos del trabajo.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ad-slot">Espacio publicitario</div>
+
+  <section class="related-section">
+    <h2>Otras calculadoras relacionadas</h2>
+    <div class="tools-grid">
+      <a href="/calculadora-salario-neto.html" class="tool-card"><span class="tc-emoji">💼</span><div class="tc-name">Salario neto</div><div class="tc-desc">Cuánto cobras realmente de tu salario bruto.</div></a>
+      <a href="/calculadora-irpf.html" class="tool-card"><span class="tc-emoji">📊</span><div class="tc-name">IRPF</div><div class="tc-desc">Estima tu cuota fiscal y retención anual.</div></a>
+      <a href="/calculadora-hipoteca.html" class="tool-card"><span class="tc-emoji">🏠</span><div class="tc-name">Hipoteca</div><div class="tc-desc">¿Puedes comprar piso con ese nuevo sueldo?</div></a>
+      <a href="/calculadora-interes-compuesto.html" class="tool-card"><span class="tc-emoji">📈</span><div class="tc-name">Interés compuesto</div><div class="tc-desc">Invierte bien el dinero del finiquito.</div></a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div><div class="footer-logo">CalcuYa.</div><p class="footer-desc">Calculadoras financieras y laborales gratuitas para España.</p></div>
+      <div class="footer-col">
+        <h4>Calculadoras</h4>
+        <a href="/calculadora-salario-neto.html">Salario neto</a>
+        <a href="/calculadora-hipoteca.html">Hipoteca</a>
+        <a href="/calculadora-finiquito.html">Finiquito</a>
+        <a href="/calculadora-irpf.html">IRPF</a>
+        <a href="/calculadora-interes-compuesto.html">Interés compuesto</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="/privacidad.html">Política de privacidad</a>
+        <a href="/aviso-legal.html">Aviso legal</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 CalcuYa.</span>
+      <span>Cálculos orientativos. No constituyen asesoramiento jurídico.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const ham = document.getElementById('hamburger');
+const nav = document.getElementById('main-nav');
+ham.addEventListener('click', () => nav.classList.toggle('open'));
+
+function fmt(n) { return Math.round(n).toLocaleString('es-ES'); }
+function fmt2(n) { return n.toFixed(2).replace('.',','); }
+
+function calcularFiniquito() {
+  const salarioMes     = parseFloat(document.getElementById('salario-mes').value);
+  const pagas          = parseInt(document.getElementById('pagas').value);
+  const fechaInicio    = new Date(document.getElementById('fecha-inicio').value);
+  const fechaFin       = new Date(document.getElementById('fecha-fin').value);
+  const vacAnuales     = parseInt(document.getElementById('vacaciones-anuales').value) || 22;
+  const vacDisfrutadas = parseInt(document.getElementById('vacaciones-disfrutadas').value) || 0;
+  const tipoDespido    = document.getElementById('tipo-despido').value;
+
+  if (!salarioMes || salarioMes <= 0) { alert('Introduce el salario mensual.'); return; }
+  if (!document.getElementById('fecha-inicio').value || !document.getElementById('fecha-fin').value) { alert('Introduce las fechas de inicio y fin del contrato.'); return; }
+  if (fechaFin <= fechaInicio) { alert('La fecha de fin debe ser posterior a la de inicio.'); return; }
+
+  const brutoAnual = salarioMes * pagas;
+  const salarioDiario = brutoAnual / 365;
+
+  // Tiempo trabajado
+  const diffMs   = fechaFin - fechaInicio;
+  const diasTotal = diffMs / (1000 * 60 * 60 * 24);
+  const anosTotal = diasTotal / 365;
+  const anosTrabajados = Math.floor(anosTotal);
+  const mesesRestantes = Math.floor((anosTotal - anosTrabajados) * 12);
+
+  // Días trabajados en el año en curso
+  const inicioAnio = new Date(fechaFin.getFullYear(), 0, 1);
+  const diasAnioActual = (fechaFin - inicioAnio) / (1000 * 60 * 60 * 24);
+
+  // Vacaciones pendientes
+  const vacacionesGeneradas = (diasAnioActual / 365) * vacAnuales;
+  const vacacionesPendientes = Math.max(0, vacacionesGeneradas - vacDisfrutadas);
+  const euroVacaciones = vacacionesPendientes * salarioDiario;
+
+  // Pagas extras proporcionales (del año en curso)
+  const numExtras = pagas - 12;
+  const mesesAnioActual = fechaFin.getMonth(); // 0-11
+  const pagasExtra = numExtras > 0 ? salarioMes * numExtras * (mesesAnioActual / 12) : 0;
+
+  // Indemnización
+  let indemnizacion = 0;
+  const diasAno = { improcedente: 33, procedente: 20, temporal: 12, ninguna: 0 };
+  const diasInd = diasAno[tipoDespido] || 0;
+  if (diasInd > 0) {
+    indemnizacion = salarioDiario * diasInd * anosTotal;
+    if (tipoDespido === 'improcedente') {
+      const maxInd = salarioMes * 24;
+      indemnizacion = Math.min(indemnizacion, maxInd);
+    }
+  }
+
+  const total = euroVacaciones + pagasExtra + indemnizacion;
+
+  // Render
+  document.getElementById('v-total').textContent     = fmt2(total);
+  document.getElementById('v-vacaciones').textContent= fmt2(euroVacaciones);
+  document.getElementById('v-pagas').textContent     = fmt2(pagasExtra);
+  document.getElementById('v-indem').textContent     = fmt2(indemnizacion);
+
+  const tiempoStr = anosTrabajados > 0 ? `${anosTrabajados} año${anosTrabajados>1?'s':''} y ${mesesRestantes} mes${mesesRestantes!==1?'es':''}` : `${mesesRestantes} mes${mesesRestantes!==1?'es':''}`;
+  document.getElementById('b-tiempo').textContent    = tiempoStr;
+  document.getElementById('b-diario').textContent    = fmt2(salarioDiario) + ' €/día';
+  document.getElementById('b-dias-vac').textContent  = vacacionesPendientes.toFixed(1) + ' días';
+  document.getElementById('b-vac-eur').textContent   = fmt2(euroVacaciones) + ' €';
+  document.getElementById('b-pagas-eur').textContent = fmt2(pagasExtra) + ' €';
+  document.getElementById('b-indem-eur').textContent = fmt2(indemnizacion) + ' €';
+  document.getElementById('b-total').textContent     = fmt2(total) + ' €';
+
+  const res = document.getElementById('results');
+  res.classList.add('visible');
+  res.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function toggleFaq(btn) {
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', !expanded);
+  btn.nextElementSibling.classList.toggle('open');
+}
+</script>
+  <script src="/cookie-banner.js"></script>
+</body>
+</html>

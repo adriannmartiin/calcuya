@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Préstamo Personal 2025 | Cuota y TAE — CalcuYa</title>
+  <meta name="description" content="Calcula la cuota mensual de tu préstamo personal en España 2025. Compara el coste real con la TAE, total de intereses y tabla de amortización. Gratis.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calcuya.es/calculadora-prestamo-personal">
+  <meta property="og:title" content="Calculadora de Préstamo Personal 2025 — CalcuYa">
+  <meta property="og:description" content="Calcula la cuota mensual de tu préstamo personal y descubre el coste real con la TAE.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://calcuya.es/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Calculadora de Préstamo Personal 2025",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "description": "Calcula la cuota mensual de tu préstamo personal y el coste real con TAE incluida."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la diferencia entre TIN y TAE en un préstamo?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "El TIN (Tipo de Interés Nominal) es el tipo de interés puro del préstamo. La TAE (Tasa Anual Equivalente) incluye también las comisiones y otros gastos del préstamo, por lo que refleja el coste real. Siempre debes comparar préstamos por su TAE, no por su TIN."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto me cuesta un préstamo personal en España?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "En España, los préstamos personales tienen TAE media de entre el 6% y el 12% para perfiles estándar. Los préstamos rápidos o microcréditos pueden tener TAE superiores al 100%. Usa la calculadora para ver el coste real según tu tipo de interés."
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- Google Analytics: sustituye G-XXXXXXXXXX por tu Measurement ID -->
+  <!-- Crea tu propiedad en analytics.google.com > Administración > Crear propiedad -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script> -->
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">CalcuYa<span class="logo-dot">.</span></a>
+    <nav id="main-nav">
+      <a href="/calculadora-salario-neto.html">💼 Salario neto</a>
+      <a href="/calculadora-hipoteca.html">🏠 Hipoteca</a>
+      <a href="/calculadora-finiquito.html">📄 Finiquito</a>
+      <a href="/calculadora-irpf.html">📊 IRPF</a>
+      <a href="/calculadora-prestamo-personal.html" class="active">💰 Préstamo</a>
+      <a href="/calculadora-interes-compuesto.html">📈 Interés compuesto</a>
+    </nav>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<main class="page-wrap">
+
+  <section class="page-hero">
+    <div class="breadcrumb"><a href="/">Inicio</a><span>›</span>Calculadora de Préstamo Personal</div>
+    <div class="tool-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      Calculadora financiera 2025
+    </div>
+    <h1 class="tool-title">Calculadora de<br>Préstamo Personal</h1>
+    <p class="tool-subtitle">Calcula la cuota mensual de tu préstamo, el total de intereses y el coste real. Compara ofertas usando la TAE para encontrar el mejor préstamo.</p>
+  </section>
+
+  <div class="ad-slot">Espacio publicitario</div>
+
+  <div class="calc-card">
+    <div class="calc-form">
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label for="importe">Importe del préstamo</label>
+          <div class="input-wrap">
+            <span class="input-prefix">€</span>
+            <input type="number" id="importe" class="has-prefix" placeholder="10000" min="100">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="plazo-p">Plazo de devolución</label>
+          <select id="plazo-p">
+            <option value="6">6 meses</option>
+            <option value="12">1 año</option>
+            <option value="18">18 meses</option>
+            <option value="24" selected>2 años</option>
+            <option value="36">3 años</option>
+            <option value="48">4 años</option>
+            <option value="60">5 años</option>
+            <option value="72">6 años</option>
+            <option value="84">7 años</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="tin">Tipo de interés anual (TIN)</label>
+          <div class="input-wrap">
+            <input type="number" id="tin" class="has-suffix" placeholder="8" min="0" max="200" step="0.01" value="8">
+            <span class="input-suffix">%</span>
+          </div>
+          <small>Media del mercado en España: 6%–12% TAE (2025)</small>
+        </div>
+
+        <div class="form-group">
+          <label for="comision">Comisión de apertura (opcional)</label>
+          <div class="input-wrap">
+            <input type="number" id="comision" class="has-suffix" placeholder="0" min="0" max="20" step="0.01" value="0">
+            <span class="input-suffix">%</span>
+          </div>
+          <small>Algunos prestamistas cobran 1–3% sobre el capital</small>
+        </div>
+
+        <button class="btn-calc" onclick="calcularPrestamo()">Calcular préstamo</button>
+      </div>
+    </div>
+
+    <div class="results-section" id="results">
+      <div class="results-title">Resultado de tu préstamo</div>
+      <div class="results-grid">
+        <div class="result-box highlight">
+          <div class="result-label">Cuota mensual</div>
+          <div class="result-value"><small>€</small><span id="v-cuota">—</span></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Total intereses</div>
+          <div class="result-value"><small>€</small><span id="v-intereses">—</span></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Total pagado</div>
+          <div class="result-value"><small>€</small><span id="v-total">—</span></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">TAE efectiva</div>
+          <div class="result-value"><span id="v-tae">—</span><small>%</small></div>
+        </div>
+      </div>
+
+      <div class="breakdown">
+        <div class="breakdown-row">
+          <span class="label">Capital prestado</span>
+          <span class="value" id="b-capital">—</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="label">Comisión de apertura</span>
+          <span class="value red" id="b-comision">—</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="label">Total intereses (TIN)</span>
+          <span class="value red" id="b-intereses">—</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="label">Coste total del préstamo</span>
+          <span class="value red" id="b-coste">—</span>
+        </div>
+        <div class="breakdown-row total">
+          <span class="label">Total a devolver</span>
+          <span class="value" id="b-total">—</span>
+        </div>
+      </div>
+
+      <!-- Comparativa visual TIN vs TAE -->
+      <div id="comparativa" style="margin-top:16px;background:var(--white);border-radius:var(--radius);border:1px solid var(--border);padding:18px;">
+        <p style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:14px;">Comparativa TIN vs TAE efectiva</p>
+        <div id="comp-rows"></div>
+        <p style="font-size:12px;color:var(--text-light);margin-top:10px;">La TAE refleja el coste real incluyendo comisiones. Usa siempre la TAE para comparar préstamos.</p>
+      </div>
+
+      <!-- Tabla primeros 12 meses -->
+      <div style="margin-top:20px;">
+        <p style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:10px;">Tabla de amortización (primeros 12 meses)</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Mes</th><th>Cuota</th><th>Capital</th><th>Intereses</th><th>Saldo</th></tr>
+            </thead>
+            <tbody id="tabla-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        La TAE calculada es una aproximación. La TAE real depende de la frecuencia de cobro de comisiones y otros gastos. Comprueba siempre la FEIN (Ficha Europea de Información Normalizada) que el prestamista está obligado a facilitarte.
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-slot">Espacio publicitario</div>
+
+  <section class="faq-section">
+    <h2>Preguntas frecuentes sobre préstamos personales</h2>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Cuál es la diferencia entre TIN y TAE?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>El <strong>TIN (Tipo de Interés Nominal)</strong> es el interés puro del préstamo, sin incluir comisiones ni gastos adicionales. Es el porcentaje que se aplica directamente al capital pendiente cada mes.</p>
+        <p>La <strong>TAE (Tasa Anual Equivalente)</strong> es la métrica que refleja el coste total y real del préstamo, incluyendo el TIN, las comisiones de apertura, los gastos de estudio y cualquier otro cargo periódico. Siempre debes comparar préstamos por su TAE, nunca solo por el TIN.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Qué tipo de interés es normal en un préstamo personal en España en 2025?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>En 2025, los préstamos personales en España tienen TAE media de entre el <strong>6% y el 12%</strong> para perfiles con buen historial crediticio, en entidades bancarias tradicionales y neobancas. Los mejores tipos suelen ser para importes medianos (5.000€–30.000€) a plazos de 3–5 años.</p>
+        <p>Los préstamos online o de financieras no bancarias pueden tener TAE de entre el 15% y el 30% o más. Los microcréditos y préstamos urgentes pueden superar el 100% TAE. Ten mucho cuidado con estas últimas opciones.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Merece la pena amortizar anticipadamente un préstamo personal?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>En general sí, especialmente si el tipo de interés es superior al 6–7%. Cada euro que devuelves antes de tiempo elimina los intereses futuros que habría generado ese capital.</p>
+        <p>La ley española permite la amortización anticipada de préstamos personales, aunque el prestamista puede cobrar una compensación de hasta el 0,5% si quedan más de 12 meses o el 0,25% si quedan menos de 12 meses. Si el préstamo tiene tipo variable, no puede haber comisión por amortización anticipada.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Cuánto tarda en aprobarse un préstamo personal?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>Depende de la entidad. Los préstamos online y de neobancas suelen aprobar en <strong>minutos o pocas horas</strong>, con el dinero disponible el mismo día o el siguiente. Los bancos tradicionales pueden tardar entre 24 horas y varios días, especialmente para importes más elevados.</p>
+        <p>Para agilizar el proceso, ten preparada la documentación básica: DNI, últimas nóminas o declaración de la renta, y extractos bancarios de los últimos meses.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Cuál es la diferencia entre un préstamo personal y una hipoteca?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>La principal diferencia es la <strong>garantía</strong>. Una hipoteca está garantizada por un inmueble (si no pagas, el banco puede ejecutar la garantía y quedarse con la vivienda). Un préstamo personal no tiene garantía real, solo la promesa de pago del deudor.</p>
+        <p>Por esta razón, los préstamos personales tienen tipos de interés más altos (6–12% TAE) que las hipotecas (2,5–4% TAE). Los préstamos personales suelen ser más rápidos de contratar, con importes menores (hasta 75.000€ en general) y plazos más cortos (hasta 10 años).</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ad-slot">Espacio publicitario</div>
+
+  <section class="related-section">
+    <h2>Otras calculadoras relacionadas</h2>
+    <div class="tools-grid">
+      <a href="/calculadora-hipoteca.html" class="tool-card"><span class="tc-emoji">🏠</span><div class="tc-name">Hipoteca</div><div class="tc-desc">Préstamos garantizados con tipo más bajo.</div></a>
+      <a href="/calculadora-salario-neto.html" class="tool-card"><span class="tc-emoji">💼</span><div class="tc-name">Salario neto</div><div class="tc-desc">¿Puedes pagar la cuota con tu sueldo?</div></a>
+      <a href="/calculadora-interes-compuesto.html" class="tool-card"><span class="tc-emoji">📈</span><div class="tc-name">Interés compuesto</div><div class="tc-desc">Ahorra e invierte en lugar de pedir prestado.</div></a>
+      <a href="/calculadora-irpf.html" class="tool-card"><span class="tc-emoji">📊</span><div class="tc-name">IRPF</div><div class="tc-desc">Calcula tu carga fiscal anual.</div></a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div><div class="footer-logo">CalcuYa.</div><p class="footer-desc">Calculadoras financieras gratuitas para España.</p></div>
+      <div class="footer-col">
+        <h4>Calculadoras</h4>
+        <a href="/calculadora-salario-neto.html">Salario neto</a>
+        <a href="/calculadora-hipoteca.html">Hipoteca</a>
+        <a href="/calculadora-finiquito.html">Finiquito</a>
+        <a href="/calculadora-irpf.html">IRPF</a>
+        <a href="/calculadora-prestamo-personal.html">Préstamo personal</a>
+        <a href="/calculadora-interes-compuesto.html">Interés compuesto</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="/privacidad.html">Política de privacidad</a>
+        <a href="/aviso-legal.html">Aviso legal</a>
+        <a href="/cookies.html">Política de cookies</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 CalcuYa.</span>
+      <span>Cálculos orientativos. No constituyen asesoramiento financiero.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const ham = document.getElementById('hamburger');
+const nav = document.getElementById('main-nav');
+ham.addEventListener('click', () => nav.classList.toggle('open'));
+
+function fmt(n) { return Math.round(n).toLocaleString('es-ES'); }
+function fmt2(n) { return n.toFixed(2).replace('.',','); }
+
+function calcularPrestamo() {
+  const P   = parseFloat(document.getElementById('importe').value);
+  const n   = parseInt(document.getElementById('plazo-p').value);
+  const tin = parseFloat(document.getElementById('tin').value) / 100;
+  const com = parseFloat(document.getElementById('comision').value) / 100;
+
+  if (!P || P <= 0) { alert('Introduce el importe del préstamo.'); return; }
+
+  const r = tin / 12;
+  let cuota;
+  if (r === 0) {
+    cuota = P / n;
+  } else {
+    cuota = P * (r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
+  }
+
+  const totalPagado   = cuota * n;
+  const totalIntereses = totalPagado - P;
+  const comisionEur   = P * com;
+  const costTotal     = totalIntereses + comisionEur;
+
+  // TAE aproximada (Newton-Raphson simplificado)
+  // TAE: P - comisionEur = sum(cuota / (1 + tae/12)^k) para k=1..n
+  let tae = tin;
+  for (let iter = 0; iter < 50; iter++) {
+    const rm = tae / 12;
+    let pv = 0, dpv = 0;
+    for (let k = 1; k <= n; k++) {
+      const disc = Math.pow(1 + rm, k);
+      pv  += cuota / disc;
+      dpv -= cuota * k / (12 * (1 + rm) * disc);
+    }
+    const f  = pv - (P - comisionEur);
+    const df = dpv;
+    if (Math.abs(f) < 0.0001) break;
+    tae = tae - f / df;
+  }
+  const taePct = (tae * 100);
+
+  // Render
+  document.getElementById('v-cuota').textContent     = fmt2(cuota);
+  document.getElementById('v-intereses').textContent = fmt(totalIntereses);
+  document.getElementById('v-total').textContent     = fmt(totalPagado);
+  document.getElementById('v-tae').textContent       = taePct.toFixed(2).replace('.',',');
+
+  document.getElementById('b-capital').textContent   = fmt(P) + ' €';
+  document.getElementById('b-comision').textContent  = comisionEur > 0 ? fmt2(comisionEur) + ' €' : '0 €';
+  document.getElementById('b-intereses').textContent = fmt2(totalIntereses) + ' €';
+  document.getElementById('b-coste').textContent     = fmt2(costTotal) + ' €';
+  document.getElementById('b-total').textContent     = fmt2(totalPagado + comisionEur) + ' €';
+
+  // TIN vs TAE visual
+  const rows = document.getElementById('comp-rows');
+  rows.innerHTML = '';
+  [
+    { label: 'TIN (tipo nominal)', val: (tin * 100), max: Math.max(tin*100, taePct) * 1.1 },
+    { label: 'TAE efectiva (coste real)', val: taePct, max: Math.max(tin*100, taePct) * 1.1 }
+  ].forEach((item, i) => {
+    const pct = Math.min(100, (item.val / item.max) * 100);
+    rows.innerHTML += `<div style="margin-bottom:10px;">
+      <div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:3px;">
+        <span style="color:var(--text-muted)">${item.label}</span>
+        <span style="font-weight:600;color:${i===1?'var(--red)':'var(--text)'}">${item.val.toFixed(2).replace('.',',')}%</span>
+      </div>
+      <div style="height:8px;background:var(--border);border-radius:4px;overflow:hidden;">
+        <div style="height:100%;width:${pct}%;background:${i===1?'#ef4444':'#059669'};border-radius:4px;"></div>
+      </div>
+    </div>`;
+  });
+
+  // Amortization table
+  const tbody = document.getElementById('tabla-body');
+  tbody.innerHTML = '';
+  let saldo = P;
+  const meses = Math.min(12, n);
+  for (let i = 1; i <= meses; i++) {
+    const intMes = saldo * r;
+    const capMes = cuota - intMes;
+    saldo -= capMes;
+    tbody.innerHTML += `<tr><td>${i}</td><td>${fmt2(cuota)} €</td><td>${fmt2(capMes)} €</td><td>${fmt2(intMes)} €</td><td>${fmt(Math.max(0,saldo))} €</td></tr>`;
+  }
+
+  const res = document.getElementById('results');
+  res.classList.add('visible');
+  res.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function toggleFaq(btn) {
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', !expanded);
+  btn.nextElementSibling.classList.toggle('open');
+}
+</script>
+<script src="/cookie-banner.js"></script>
+</body>
+</html>

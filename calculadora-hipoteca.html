@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Hipoteca 2025 | Cuota y Tabla de Amortización — CalcuYa</title>
+  <meta name="description" content="Calcula la cuota mensual de tu hipoteca en España 2025. Obtén la tabla de amortización completa, total de intereses y simulación de amortización anticipada.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calcuya.es/calculadora-hipoteca">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta property="og:image" content="https://calcuya.es/og-image.svg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Calculadora de Hipoteca 2025",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+    "description": "Calcula la cuota mensual de tu hipoteca y obtén la tabla de amortización completa."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuánto pago de hipoteca al mes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La cuota mensual de una hipoteca depende de tres factores: el importe del préstamo, el tipo de interés y el plazo de amortización. Usa la calculadora para obtener tu cuota exacta en segundos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuánto financia el banco para una hipoteca en España?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "En España, el Banco de España recomienda que los bancos no financien más del 80% del valor de tasación para primera vivienda (90% para jóvenes en algunos casos). Necesitarás aportar el 20% de entrada más los gastos (notaría, gestoría, impuestos: aprox. 10% extra)."
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- Google Analytics: sustituye G-XXXXXXXXXX por tu Measurement ID -->
+  <!-- Crea tu propiedad en analytics.google.com > Administración > Crear propiedad -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script> -->
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">CalcuYa<span class="logo-dot">.</span></a>
+    <nav id="main-nav">
+      <a href="/calculadora-salario-neto.html">💼 Salario neto</a>
+      <a href="/calculadora-hipoteca.html" class="active">🏠 Hipoteca</a>
+      <a href="/calculadora-finiquito.html">📄 Finiquito</a>
+      <a href="/calculadora-irpf.html">📊 IRPF</a>
+      <a href="/calculadora-prestamo-personal.html">💰 Préstamo</a>
+      <a href="/calculadora-interes-compuesto.html">📈 Interés compuesto</a>
+    </nav>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<main class="page-wrap">
+
+  <section class="page-hero">
+    <div class="breadcrumb"><a href="/">Inicio</a><span>›</span>Calculadora de Hipoteca</div>
+    <div class="tool-badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+      Calculadora financiera 2025
+    </div>
+    <h1 class="tool-title">Calculadora de<br>Hipoteca</h1>
+    <p class="tool-subtitle">Calcula tu cuota mensual, el total de intereses y obtén la tabla de amortización completa. Sistema de amortización francés.</p>
+  </section>
+
+  <div class="ad-slot">Espacio publicitario</div>
+
+  <div class="calc-card">
+    <div class="calc-form">
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label for="precio">Precio de la vivienda</label>
+          <div class="input-wrap">
+            <span class="input-prefix">€</span>
+            <input type="number" id="precio" class="has-prefix" placeholder="200000" min="0">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="financiacion">Porcentaje financiado</label>
+          <div class="input-wrap">
+            <input type="number" id="financiacion" class="has-suffix" placeholder="80" min="1" max="100" value="80">
+            <span class="input-suffix">%</span>
+          </div>
+          <small>El banco financia máx. 80% (90% jóvenes)</small>
+        </div>
+
+        <div class="form-group">
+          <label for="plazo">Plazo de la hipoteca</label>
+          <select id="plazo">
+            <option value="10">10 años</option>
+            <option value="15">15 años</option>
+            <option value="20">20 años</option>
+            <option value="25" selected>25 años</option>
+            <option value="30">30 años</option>
+            <option value="35">35 años</option>
+            <option value="40">40 años</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="interes">Tipo de interés anual (TIN)</label>
+          <div class="input-wrap">
+            <input type="number" id="interes" class="has-suffix" placeholder="3.5" min="0" max="20" step="0.01" value="3.5">
+            <span class="input-suffix">%</span>
+          </div>
+        </div>
+
+        <button class="btn-calc" onclick="calcularHipoteca()">Calcular cuota hipoteca</button>
+      </div>
+    </div>
+
+    <div class="results-section" id="results">
+      <div class="results-title">Resultado de tu hipoteca</div>
+      <div class="results-grid">
+        <div class="result-box highlight">
+          <div class="result-label">Cuota mensual</div>
+          <div class="result-value"><small>€</small><span id="v-cuota">—</span></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Capital solicitado</div>
+          <div class="result-value"><small>€</small><span id="v-capital">—</span></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Total intereses</div>
+          <div class="result-value"><small>€</small><span id="v-intereses">—</span></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Total pagado</div>
+          <div class="result-value"><small>€</small><span id="v-total">—</span></div>
+        </div>
+      </div>
+
+      <div class="breakdown">
+        <div class="breakdown-row">
+          <span class="label">Precio de la vivienda</span>
+          <span class="value" id="b-precio">—</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="label">Capital financiado</span>
+          <span class="value" id="b-capital">—</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="label">Entrada requerida (20%)</span>
+          <span class="value red" id="b-entrada">—</span>
+        </div>
+        <div class="breakdown-row">
+          <span class="label">Intereses totales</span>
+          <span class="value red" id="b-intereses">—</span>
+        </div>
+        <div class="breakdown-row total">
+          <span class="label">Coste total de la hipoteca</span>
+          <span class="value" id="b-total">—</span>
+        </div>
+      </div>
+
+      <div id="tabla-container">
+        <p style="font-size:13px; font-weight:600; color:var(--text); margin:20px 0 10px;">Tabla de amortización (primeros 24 meses)</p>
+        <div class="table-wrap">
+          <table id="tabla-amort">
+            <thead>
+              <tr>
+                <th>Mes</th>
+                <th>Cuota</th>
+                <th>Capital</th>
+                <th>Intereses</th>
+                <th>Saldo pendiente</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-slot">Espacio publicitario</div>
+
+  <section class="faq-section">
+    <h2>Preguntas frecuentes sobre hipotecas</h2>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Qué es el sistema de amortización francés?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>El sistema francés es el más utilizado en España. La cuota mensual es siempre la misma, pero la proporción de capital e intereses varía: al principio pagas más intereses y poca deuda real; al final del préstamo es al revés.</p>
+        <p>Esto ocurre porque los intereses se calculan sobre el capital pendiente. Al inicio la deuda es máxima, así que los intereses también. Con el tiempo reduces la deuda y los intereses bajan.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Hipoteca fija o variable en 2025?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p><strong>Hipoteca fija:</strong> la cuota no cambia nunca. Ofrece seguridad y predictibilidad. En 2025 los tipos fijos están en torno al 2,5%–4% TAE, tras las subidas del BCE.</p>
+        <p><strong>Hipoteca variable:</strong> la cuota varía según el Euríbor. Puede ser más barata si los tipos bajan, pero expone al riesgo de subidas. En 2025, el Euríbor se mantiene en niveles más moderados que en 2023.</p>
+        <p>La elección depende de tu perfil de riesgo y tu horizonte temporal. Si valoras la estabilidad, la fija es más segura.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Cuánto dinero necesito ahorrado para comprar una vivienda?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>Generalmente necesitas tener ahorrado al menos el <strong>30–32% del precio de la vivienda</strong> para afrontar la compra con seguridad:</p>
+        <p>• <strong>20%</strong> de entrada (el banco financia el 80% del valor de tasación normalmente) | • <strong>10–12%</strong> en gastos de compra: impuesto de transmisiones patrimoniales o IVA (según si es nueva o de segunda mano), notaría, gestoría, registro y tasación.</p>
+        <p>Para una vivienda de 200.000€ necesitarías unos 60.000€ ahorrados.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Qué porcentaje de mis ingresos debería destinar a la hipoteca?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>El Banco de España recomienda que la cuota hipotecaria <strong>no supere el 35% de los ingresos netos</strong> del hogar. Este umbral garantiza que tengas margen para otros gastos esenciales, imprevistos y ahorro.</p>
+        <p>Por ejemplo, con unos ingresos netos de 2.500€ al mes, la cuota hipotecaria no debería superar los 875€.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+        ¿Merece la pena amortizar anticipadamente la hipoteca?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>Depende del tipo de interés. Si tu hipoteca tiene un tipo del 3,5% o más, cada euro que amortizas anticipadamente "rinde" ese 3,5% de manera garantizada. Si puedes invertir ese dinero a mayor rentabilidad, puede ser mejor invertir.</p>
+        <p>Al amortizar puedes elegir entre reducir plazo (ahorras más en intereses totales) o reducir cuota (mejoras tu liquidez mensual). Reducir plazo suele ser financieramente más eficiente.</p>
+        <p>Los bancos pueden cobrar comisión de amortización anticipada, limitada por ley al 2% los primeros 5 años y al 1,5% el resto, en hipotecas fijas.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="ad-slot">Espacio publicitario</div>
+
+  <section class="related-section">
+    <h2>Otras calculadoras relacionadas</h2>
+    <div class="tools-grid">
+      <a href="/calculadora-salario-neto.html" class="tool-card"><span class="tc-emoji">💼</span><div class="tc-name">Salario neto</div><div class="tc-desc">¿Puedes permitirte esa hipoteca? Calcula tu neto primero.</div></a>
+      <a href="/calculadora-interes-compuesto.html" class="tool-card"><span class="tc-emoji">📈</span><div class="tc-name">Interés compuesto</div><div class="tc-desc">Simula el crecimiento de tus ahorros para la entrada.</div></a>
+      <a href="/calculadora-finiquito.html" class="tool-card"><span class="tc-emoji">📄</span><div class="tc-name">Finiquito</div><div class="tc-desc">Calcula lo que te corresponde al dejar un trabajo.</div></a>
+      <a href="/calculadora-irpf.html" class="tool-card"><span class="tc-emoji">📊</span><div class="tc-name">IRPF</div><div class="tc-desc">Estima tu carga fiscal anual.</div></a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">CalcuYa.</div>
+        <p class="footer-desc">Calculadoras financieras gratuitas para España.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Calculadoras</h4>
+        <a href="/calculadora-salario-neto.html">Salario neto</a>
+        <a href="/calculadora-hipoteca.html">Hipoteca</a>
+        <a href="/calculadora-finiquito.html">Finiquito</a>
+        <a href="/calculadora-irpf.html">IRPF</a>
+        <a href="/calculadora-interes-compuesto.html">Interés compuesto</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="/privacidad.html">Política de privacidad</a>
+        <a href="/aviso-legal.html">Aviso legal</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 CalcuYa.</span>
+      <span>Cálculos orientativos. No constituyen asesoramiento financiero.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const ham = document.getElementById('hamburger');
+const nav = document.getElementById('main-nav');
+ham.addEventListener('click', () => nav.classList.toggle('open'));
+
+function fmt(n) { return Math.round(n).toLocaleString('es-ES'); }
+function fmt2(n) { return n.toFixed(2).replace('.',','); }
+
+function calcularHipoteca() {
+  const precio   = parseFloat(document.getElementById('precio').value);
+  const pct      = parseFloat(document.getElementById('financiacion').value) / 100;
+  const plazo    = parseInt(document.getElementById('plazo').value);
+  const tasa     = parseFloat(document.getElementById('interes').value) / 100 / 12;
+
+  if (!precio || precio <= 0) { alert('Introduce el precio de la vivienda.'); return; }
+
+  const capital  = precio * pct;
+  const n        = plazo * 12;
+  const entrada  = precio - capital;
+
+  // Fórmula cuota mensual sistema francés
+  let cuota;
+  if (tasa === 0) {
+    cuota = capital / n;
+  } else {
+    cuota = capital * (tasa * Math.pow(1 + tasa, n)) / (Math.pow(1 + tasa, n) - 1);
+  }
+
+  const totalPagado   = cuota * n;
+  const totalIntereses = totalPagado - capital;
+
+  // Results
+  document.getElementById('v-cuota').textContent     = fmt2(cuota);
+  document.getElementById('v-capital').textContent   = fmt(capital);
+  document.getElementById('v-intereses').textContent = fmt(totalIntereses);
+  document.getElementById('v-total').textContent     = fmt(totalPagado);
+
+  document.getElementById('b-precio').textContent    = fmt(precio) + ' €';
+  document.getElementById('b-capital').textContent   = fmt(capital) + ' €';
+  document.getElementById('b-entrada').textContent   = fmt(entrada) + ' €';
+  document.getElementById('b-intereses').textContent = fmt(totalIntereses) + ' €';
+  document.getElementById('b-total').textContent     = fmt(totalPagado) + ' €';
+
+  // Amortization table (first 24 months)
+  const tbody = document.getElementById('tabla-body');
+  tbody.innerHTML = '';
+  let saldo = capital;
+  const meses = Math.min(24, n);
+  for (let i = 1; i <= meses; i++) {
+    const intMes   = saldo * tasa;
+    const capMes   = cuota - intMes;
+    saldo         -= capMes;
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${i}</td><td>${fmt2(cuota)} €</td><td>${fmt2(capMes)} €</td><td>${fmt2(intMes)} €</td><td>${fmt(Math.max(0,saldo))} €</td>`;
+    tbody.appendChild(tr);
+  }
+
+  const res = document.getElementById('results');
+  res.classList.add('visible');
+  res.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function toggleFaq(btn) {
+  const expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', !expanded);
+  btn.nextElementSibling.classList.toggle('open');
+}
+</script>
+  <script src="/cookie-banner.js"></script>
+</body>
+</html>

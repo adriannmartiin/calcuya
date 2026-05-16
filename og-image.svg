@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#0f172a"/>
+  <rect x="0" y="0" width="6" height="630" fill="#065f46"/>
+  <rect x="60" y="60" width="180" height="180" rx="24" fill="#065f46"/>
+  <text x="150" y="170" font-family="Georgia,serif" font-size="110" font-weight="bold" text-anchor="middle" fill="#ffffff">C</text>
+  <circle cx="210" cy="90" r="22" fill="#f59e0b"/>
+  <text x="60" y="320" font-family="Georgia,serif" font-size="72" fill="#ffffff" font-weight="400">CalcuYa</text>
+  <text x="62" y="388" font-family="Arial,sans-serif" font-size="32" fill="#94a3b8">Calculadoras financieras gratuitas para España</text>
+  <rect x="62" y="430" width="3" height="60" fill="#065f46"/>
+  <text x="80" y="455" font-family="Arial,sans-serif" font-size="22" fill="#64748b">Salario neto · Hipoteca · Finiquito · IRPF · Interés compuesto</text>
+  <text x="80" y="482" font-family="Arial,sans-serif" font-size="22" fill="#64748b">Gratis · Sin registro · Actualizado 2025</text>
+  <rect x="900" y="200" width="240" height="240" rx="20" fill="#065f46" opacity="0.15"/>
+  <text x="1020" y="335" font-family="Arial,sans-serif" font-size="80" text-anchor="middle" fill="#1D9E75">€</text>
+</svg>
