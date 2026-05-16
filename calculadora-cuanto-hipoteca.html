@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Cuánto puedo pedir de Hipoteca? Simulador y Calculadora — CalcuYa</title>
+  <meta name="description" content="Simulador y calculadora gratuita: descubre cuánto puedo pedir de hipoteca según tus ingresos. Calcula el importe máximo que el banco te concedería, los ahorros necesarios y el precio máximo de vivienda.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calcuya.org/calculadora-cuanto-hipoteca">
+  <meta property="og:title" content="¿Cuánto puedo pedir de Hipoteca? — CalcuYa">
+  <meta property="og:description" content="Calcula el importe máximo de hipoteca según tus ingresos y descubre el precio de vivienda que puedes permitirte.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://calcuya.org/og-image.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6RC7MNOCPD"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6RC7MNOCPD');</script>
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Calculadora ¿Cuánto puedo pedir de hipoteca?","applicationCategory":"FinanceApplication","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}}</script>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">CalcuYa<span class="logo-dot">.</span></a>
+    <nav id="main-nav">
+      <a href="/calculadora-salario-neto.html">💼 Salario</a>
+      <a href="/calculadora-hipoteca.html">🏠 Hipoteca</a>
+      <a href="/calculadora-cuanto-hipoteca.html" class="active">🔑 ¿Cuánto?</a>
+      <a href="/calculadora-finiquito.html">📄 Finiquito</a>
+      <a href="/calculadora-irpf.html">📊 IRPF</a>
+      <a href="/calculadora-iva.html">🧾 IVA</a>
+      <a href="/calculadora-paro.html">📋 Paro</a>
+    </nav>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<main class="page-wrap">
+  <section class="page-hero">
+    <div class="breadcrumb"><a href="/">Inicio</a><span>›</span>¿Cuánto puedo pedir de hipoteca?</div>
+    <div class="tool-badge">🏠 Simulador hipotecario</div>
+    <h1 class="tool-title">¿Cuánto puedo<br>pedir de hipoteca?</h1>
+    <p class="tool-subtitle">Descubre el importe máximo de hipoteca que los bancos te concederían según tus ingresos, gastos y ahorros disponibles. Resultado al instante.</p>
+  </section>
+
+  <div class="ad-slot"><!-- AdSense --></div>
+
+  <div class="calc-card">
+    <div class="calc-form">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="ingresos-netos">Ingresos netos mensuales del hogar</label>
+          <div class="input-wrap"><span class="input-prefix">€</span>
+            <input type="number" autocomplete="off" id="ingresos-netos" class="has-prefix" placeholder="3000" min="0">
+          </div>
+          <small>Suma los ingresos netos de todos los titulares</small>
+        </div>
+        <div class="form-group">
+          <label for="gastos-fijos">Otros gastos financieros mensuales</label>
+          <div class="input-wrap"><span class="input-prefix">€</span>
+            <input type="number" autocomplete="off" id="gastos-fijos" class="has-prefix" placeholder="0" min="0">
+          </div>
+          <small>Cuotas de préstamos, tarjetas, etc. (no el alquiler)</small>
+        </div>
+        <div class="form-group">
+          <label for="ahorros">Ahorros disponibles para la compra</label>
+          <div class="input-wrap"><span class="input-prefix">€</span>
+            <input type="number" autocomplete="off" id="ahorros" class="has-prefix" placeholder="40000" min="0">
+          </div>
+          <small>Los que destinarías a la compra</small>
+        </div>
+        <div class="form-group">
+          <label for="plazo-cuanto">Plazo de la hipoteca</label>
+          <div class="input-wrap">
+            <input type="number" autocomplete="off" id="plazo-cuanto" class="has-suffix" placeholder="25" min="5" max="40" value="25">
+            <span class="input-suffix">años</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="interes-cuanto">Tipo de interés estimado (TIN)</label>
+          <div class="input-wrap">
+            <input type="number" autocomplete="off" id="interes-cuanto" class="has-suffix" placeholder="3.5" min="0" max="15" step="0.1" value="3.5">
+            <span class="input-suffix">%</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pct-endeudamiento">% máximo de endeudamiento</label>
+          <select id="pct-endeudamiento">
+            <option value="30">30% (criterio conservador)</option>
+            <option value="35" selected>35% (criterio estándar bancario)</option>
+            <option value="40">40% (criterio flexible)</option>
+          </select>
+        </div>
+        <button class="btn-calc" onclick="calcularCuantoHipoteca()">Calcular cuánto puedo pedir</button>
+      </div>
+    </div>
+
+    <div class="results-section" id="results">
+      <div class="results-title">Tu capacidad hipotecaria</div>
+      <div class="results-grid">
+        <div class="result-box highlight">
+          <div class="result-label">Capital máximo hipoteca</div>
+          <div class="result-value"><small>€</small><span id="v-capital">—</span></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Cuota mensual máxima</div>
+          <div class="result-value"><small>€</small><span id="v-cuota">—</span></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Precio máximo vivienda</div>
+          <div class="result-value"><small>€</small><span id="v-precio">—</span></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Ahorros mínimos necesarios</div>
+          <div class="result-value"><small>€</small><span id="v-entrada">—</span></div>
+        </div>
+      </div>
+
+      <div class="breakdown">
+        <div class="breakdown-row"><span class="label">Capacidad de pago mensual disponible</span><span class="value" id="b-cap">—</span></div>
+        <div class="breakdown-row"><span class="label">Capital financiable (80% del precio)</span><span class="value" id="b-cap80">—</span></div>
+        <div class="breakdown-row"><span class="label">Entrada necesaria (20% del precio)</span><span class="value" id="b-entrada20">—</span></div>
+        <div class="breakdown-row"><span class="label">Gastos de compraventa (~10%)</span><span class="value" id="b-gastos">—</span></div>
+        <div class="breakdown-row total"><span class="label">Total ahorros necesarios</span><span class="value" id="b-total-ahorros">—</span></div>
+      </div>
+
+      <div id="aviso-ahorros" style="display:none; margin-top:14px; padding:12px 16px; background:#fef9ee; border:1px solid #fde68a; border-radius:8px; font-size:13px; color:#78350f;">
+        <strong>⚠️ Atención:</strong> Tus ahorros actuales (<span id="av-ahorros">—</span>€) son inferiores a los necesarios (<span id="av-necesarios">—</span>€). Necesitas ahorrar <span id="av-diferencia">—</span>€ más antes de comprar.
+      </div>
+
+      <div class="info-box" style="margin-top:14px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Estimación orientativa. La concesión final depende del scoring bancario, historial crediticio, tipo de trabajo y política de cada entidad. El Banco de España recomienda que la cuota no supere el 30-35% de los ingresos netos.
+      </div>
+
+      <div class="share-box">
+        <p>¿Te ha sido útil?</p>
+        <button class="share-btn wa" onclick="shareWA()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Enviar por WhatsApp
+        </button>
+        <button class="share-btn cp" onclick="copyLink()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          Copiar enlace
+        </button>
+      </div>
+      <div class="share-toast" id="share-toast">¡Enlace copiado!</div>
+    </div>
+  </div>
+
+  <div class="ad-slot"><!-- AdSense --></div>
+
+  <section class="faq-section">
+    <h2>Preguntas frecuentes sobre cuánto puedo pedir de hipoteca</h2>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Qué porcentaje de mis ingresos puede ir a la hipoteca?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer"><p>El criterio estándar de los bancos en España es que la cuota mensual de la hipoteca (más todas las deudas) no supere el <strong>35% de los ingresos netos mensuales</strong>. El Banco de España recomienda no superar el 30-35%.</p><p>Si ganas 3.000€ netos al mes, la cuota máxima rondará los 900-1.050€/mes. Si ya tienes otros préstamos, ese importe se reduce.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Cuánto financia el banco de una hipoteca?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer"><p>Según la normativa del Banco de España, los bancos no pueden financiar más del <strong>80% del valor de tasación</strong> en primera vivienda. Necesitas aportar al menos el 20% de entrada.</p><p>Para jóvenes menores de 35 años, en algunas comunidades autónomas o con aval público pueden financiar hasta el 90-95%.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Qué ahorros necesito para comprar una casa?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer"><p>Como regla general necesitas tener ahorrado el <strong>30% del precio de la vivienda</strong>: el 20% para la entrada y entre el 8-12% para gastos de compraventa (notaría, registro, impuestos, tasación y gestoría).</p><p>Ejemplo: para una vivienda de 200.000€ necesitas aproximadamente 60.000€ ahorrados (40.000€ de entrada + 20.000€ de gastos).</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Cómo puedo pedir más hipoteca?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer"><p>Las principales palancas para acceder a una hipoteca mayor son: <strong>añadir un segundo titular</strong> (pareja, familiar) para sumar ingresos; <strong>cancelar deudas previas</strong> que reducen tu capacidad de endeudamiento; <strong>ampliar el plazo</strong> (hasta 30-40 años) para reducir la cuota mensual y así poder pedir más capital; o mejorar tu perfil crediticio pagando puntualmente durante 6-12 meses antes de solicitar.</p></div>
+    </div>
+  </section>
+
+  <section class="related-section">
+    <h2>Calculadoras relacionadas</h2>
+    <div class="tools-grid">
+      <a href="/calculadora-hipoteca.html" class="tool-card"><span class="tc-emoji">🏠</span><div class="tc-name">Calculadora de hipoteca</div><div class="tc-desc">Calcula la cuota mensual y tabla de amortización.</div></a>
+      <a href="/calculadora-amortizacion.html" class="tool-card"><span class="tc-emoji">⚡</span><div class="tc-name">Amortización anticipada</div><div class="tc-desc">Cuánto ahorras amortizando antes de tiempo.</div></a>
+      <a href="/calculadora-salario-neto.html" class="tool-card"><span class="tc-emoji">💼</span><div class="tc-name">Salario neto</div><div class="tc-desc">Calcula tu neto para saber qué hipoteca puedes pagar.</div></a>
+    </div>
+  </section>
+  <div class="ad-slot"><!-- AdSense --></div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div><div class="footer-logo">CalcuYa.</div><p class="footer-desc">Calculadoras financieras gratuitas para España.</p></div>
+      <div class="footer-col"><h4>Calculadoras</h4>
+        <a href="/calculadora-salario-neto.html">Salario neto</a>
+        <a href="/calculadora-hipoteca.html">Hipoteca</a>
+        <a href="/calculadora-cuanto-hipoteca.html">¿Cuánto puedo pedir?</a>
+        <a href="/calculadora-amortizacion.html">Amortización anticipada</a>
+        <a href="/calculadora-finiquito.html">Finiquito</a>
+        <a href="/calculadora-irpf.html">IRPF</a>
+        <a href="/calculadora-iva.html">IVA</a>
+        <a href="/calculadora-paro.html">Paro</a>
+      </div>
+      <div class="footer-col"><h4>Legal</h4>
+        <a href="/privacidad.html">Política de privacidad</a>
+        <a href="/aviso-legal.html">Aviso legal</a>
+        <a href="/cookies.html">Política de cookies</a>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© CalcuYa.</span><span>Cálculos orientativos. No constituyen asesoramiento financiero.</span></div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('hamburger').addEventListener('click', () => document.getElementById('main-nav').classList.toggle('open'));
+
+function fmt(n) { return Math.round(n).toLocaleString('es-ES'); }
+function fmt2(n) { return n.toFixed(2).replace('.',','); }
+
+function calcularCuantoHipoteca() {
+  const ingNetos  = parseFloat(document.getElementById('ingresos-netos').value);
+  const gastosFij = parseFloat(document.getElementById('gastos-fijos').value) || 0;
+  const ahorros   = parseFloat(document.getElementById('ahorros').value) || 0;
+  const plazo     = parseInt(document.getElementById('plazo-cuanto').value) || 25;
+  const tin       = parseFloat(document.getElementById('interes-cuanto').value) / 100 || 0.035;
+  const pctEndeu  = parseInt(document.getElementById('pct-endeudamiento').value) / 100;
+
+  if (!ingNetos || ingNetos <= 0) { alert('Introduce tus ingresos netos mensuales.'); return; }
+
+  // Cuota máxima disponible
+  const cuotaMax = ingNetos * pctEndeu - gastosFij;
+  if (cuotaMax <= 0) { alert('Tus gastos actuales superan ya el límite de endeudamiento recomendado.'); return; }
+
+  // Capital máximo con esa cuota
+  const n = plazo * 12;
+  const r = tin / 12;
+  const capital = r > 0 ? cuotaMax * ((Math.pow(1+r, n) - 1) / (r * Math.pow(1+r, n))) : cuotaMax * n;
+
+  // Precio máximo vivienda (banco financia 80%)
+  const precioMax = capital / 0.80;
+  const entrada20 = precioMax * 0.20;
+  const gastosComp = precioMax * 0.10; // ~10% gastos notaría, impuestos, etc.
+  const totalAhorrosNecesarios = entrada20 + gastosComp;
+
+  document.getElementById('v-capital').textContent = fmt(capital);
+  document.getElementById('v-cuota').textContent   = fmt2(cuotaMax);
+  document.getElementById('v-precio').textContent  = fmt(precioMax);
+  document.getElementById('v-entrada').textContent = fmt(totalAhorrosNecesarios);
+
+  document.getElementById('b-cap').textContent          = fmt2(cuotaMax) + ' €/mes';
+  document.getElementById('b-cap80').textContent        = fmt(capital) + ' €';
+  document.getElementById('b-entrada20').textContent    = fmt(entrada20) + ' €';
+  document.getElementById('b-gastos').textContent       = fmt(gastosComp) + ' €';
+  document.getElementById('b-total-ahorros').textContent = fmt(totalAhorrosNecesarios) + ' €';
+
+  // Aviso si ahorros insuficientes
+  const aviso = document.getElementById('aviso-ahorros');
+  if (ahorros > 0 && ahorros < totalAhorrosNecesarios) {
+    document.getElementById('av-ahorros').textContent    = fmt(ahorros);
+    document.getElementById('av-necesarios').textContent = fmt(totalAhorrosNecesarios);
+    document.getElementById('av-diferencia').textContent = fmt(totalAhorrosNecesarios - ahorros);
+    aviso.style.display = 'block';
+  } else {
+    aviso.style.display = 'none';
+  }
+
+  const res = document.getElementById('results');
+  res.classList.add('visible');
+  res.scrollIntoView({ behavior:'smooth', block:'nearest' });
+}
+
+function shareWA() { window.open('https://wa.me/?text=' + encodeURIComponent('He usado esta calculadora: ' + window.location.href), '_blank'); }
+function copyLink() { navigator.clipboard.writeText(window.location.href).then(() => { const t = document.getElementById('share-toast'); t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2000); }); }
+function toggleFaq(btn) { const exp = btn.getAttribute('aria-expanded')==='true'; btn.setAttribute('aria-expanded', !exp); btn.nextElementSibling.classList.toggle('open'); }
+</script>
+<script src="/cookie-banner.js"></script>
+</body>
+</html>

@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora de IVA | Añadir y Quitar IVA Online — CalcuYa</title>
-  <meta name="description" content="Calcula el IVA en España. Añade o quita IVA al 21%, 10% y 4% al instante. Calcula la base imponible, cuota de IVA y precio total. Gratis y sin registro.">
+  <title>Simulador y Calculadora de IVA | Añadir y Quitar IVA Online — CalcuYa</title>
+  <meta name="description" content="Simulador y calculadora de IVA gratis. Añade o quita el IVA al 21%, 10% y 4% al instante. Calcula la base imponible y la cuota de IVA. Indispensable para autónomos y freelancers.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://calcuya.org/calculadora-iva">
-  <meta property="og:title" content="Calculadora de IVA — CalcuYa">
+  <meta property="og:title" content="Simulador y Calculadora de IVA — CalcuYa">
   <meta property="og:description" content="Añade o quita IVA al 21%, 10% y 4% al instante. Calcula base imponible y cuota de IVA.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://calcuya.org/og-image.svg">
@@ -82,7 +82,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
       Calculadora fiscal
     </div>
-    <h1 class="tool-title">Calculadora<br>de IVA</h1>
+    <h1 class="tool-title">Simulador y Calculadora<br>de IVA</h1>
     <p class="tool-subtitle">Añade o quita el IVA al instante. Compatible con los tres tipos de IVA en España: 21%, 10% y 4%. Resultado inmediato y sin registro.</p>
   </section>
 
@@ -393,6 +393,20 @@ function toggleIvaCustom(val) {
   const wrap = document.getElementById('iva-custom-wrap');
   wrap.style.display = val === 'custom' ? 'block' : 'none';
   if (val === 'custom') document.getElementById('tipo-iva-custom').focus();
+}
+
+
+function shareWA() {
+  const url = encodeURIComponent(window.location.href);
+  const text = encodeURIComponent('He usado esta calculadora de CalcuYa y me ha resultado muy útil: ');
+  window.open('https://wa.me/?text=' + text + url, '_blank');
+}
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    const t = document.getElementById('share-toast');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2000);
+  });
 }
 
 function toggleFaq(btn) {

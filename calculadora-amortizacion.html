@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador y Calculadora de Amortización Anticipada de Hipoteca — CalcuYa</title>
+  <meta name="description" content="Simulador y calculadora de amortización anticipada de hipoteca gratis. Calcula cuánto ahorras en intereses amortizando capital antes de tiempo. Elige entre reducir cuota o reducir plazo.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://calcuya.org/calculadora-amortizacion">
+  <meta property="og:title" content="Simulador de Amortización Anticipada de Hipoteca — CalcuYa">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://calcuya.org/og-image.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6RC7MNOCPD"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6RC7MNOCPD');</script>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">CalcuYa<span class="logo-dot">.</span></a>
+    <nav id="main-nav">
+      <a href="/calculadora-salario-neto.html">💼 Salario</a>
+      <a href="/calculadora-hipoteca.html">🏠 Hipoteca</a>
+      <a href="/calculadora-amortizacion.html" class="active">⚡ Amortización</a>
+      <a href="/calculadora-finiquito.html">📄 Finiquito</a>
+      <a href="/calculadora-irpf.html">📊 IRPF</a>
+      <a href="/calculadora-iva.html">🧾 IVA</a>
+      <a href="/calculadora-paro.html">📋 Paro</a>
+    </nav>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<main class="page-wrap">
+  <section class="page-hero">
+    <div class="breadcrumb"><a href="/">Inicio</a><span>›</span>Amortización anticipada hipoteca</div>
+    <div class="tool-badge">🏠 Simulador hipotecario</div>
+    <h1 class="tool-title">Simulador de Amortización<br>Anticipada de Hipoteca</h1>
+    <p class="tool-subtitle">Calcula cuánto ahorrarías en intereses si amortizas capital de tu hipoteca antes de tiempo. Compara reducir la cuota mensual o reducir el plazo.</p>
+  </section>
+
+  <div class="ad-slot"><!-- AdSense --></div>
+
+  <div class="calc-card">
+    <div class="calc-form">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="capital-pendiente">Capital pendiente de la hipoteca</label>
+          <div class="input-wrap"><span class="input-prefix">€</span>
+            <input type="number" autocomplete="off" id="capital-pendiente" class="has-prefix" placeholder="150000" min="0">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="tin-actual">Tipo de interés actual (TIN)</label>
+          <div class="input-wrap">
+            <input type="number" autocomplete="off" id="tin-actual" class="has-suffix" placeholder="3.5" min="0" max="20" step="0.1" value="3.5">
+            <span class="input-suffix">%</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="meses-restantes">Meses restantes de hipoteca</label>
+          <div class="input-wrap">
+            <input type="number" autocomplete="off" id="meses-restantes" class="has-suffix" placeholder="240" min="1" max="480" value="240">
+            <span class="input-suffix">meses</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="amortizacion-extra">Importe a amortizar anticipadamente</label>
+          <div class="input-wrap"><span class="input-prefix">€</span>
+            <input type="number" autocomplete="off" id="amortizacion-extra" class="has-prefix" placeholder="10000" min="0">
+          </div>
+        </div>
+        <div class="form-group full">
+          <label>¿Cómo quieres usar la amortización?</label>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:6px;">
+            <button id="btn-plazo" onclick="setModoAm('plazo')"
+              style="height:52px; border-radius:8px; font-family:'DM Sans',sans-serif; font-size:13px; font-weight:600; cursor:pointer; transition:all .15s; background:var(--brand); color:#fff; border:2px solid var(--brand); padding:0 12px; line-height:1.3">
+              ⏱ Reducir plazo<br><span style="font-size:11px;font-weight:400">Mantienes la cuota, acabas antes</span>
+            </button>
+            <button id="btn-cuota" onclick="setModoAm('cuota')"
+              style="height:52px; border-radius:8px; font-family:'DM Sans',sans-serif; font-size:13px; font-weight:600; cursor:pointer; transition:all .15s; background:var(--white); color:var(--text-muted); border:2px solid var(--border); padding:0 12px; line-height:1.3">
+              💶 Reducir cuota<br><span style="font-size:11px;font-weight:400">Pagas menos cada mes</span>
+            </button>
+          </div>
+        </div>
+        <button class="btn-calc" onclick="calcularAmortizacion()">Calcular ahorro</button>
+      </div>
+    </div>
+
+    <div class="results-section" id="results">
+      <div class="results-title">Resultado de la amortización anticipada</div>
+      <div class="results-grid">
+        <div class="result-box highlight">
+          <div class="result-label">Ahorro total en intereses</div>
+          <div class="result-value"><small>€</small><span id="v-ahorro">—</span></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label" id="r2-label">Reducción de plazo</div>
+          <div class="result-value"><span id="v-reduccion">—</span><small id="r2-unit"> meses</small></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label">Cuota actual</div>
+          <div class="result-value"><small>€</small><span id="v-cuota-actual">—</span></div>
+        </div>
+        <div class="result-box">
+          <div class="result-label" id="r4-label">Nueva cuota / plazo</div>
+          <div class="result-value"><small id="r4-pre">€</small><span id="v-nuevo">—</span><small id="r4-suf"></small></div>
+        </div>
+      </div>
+
+      <div class="breakdown">
+        <div class="breakdown-row"><span class="label">Capital pendiente</span><span class="value" id="b-cap">—</span></div>
+        <div class="breakdown-row"><span class="label">Capital amortizado anticipadamente</span><span class="value" id="b-extra">—</span></div>
+        <div class="breakdown-row"><span class="label">Nuevo capital pendiente</span><span class="value" id="b-nuevo-cap">—</span></div>
+        <div class="breakdown-row"><span class="label">Intereses sin amortización</span><span class="value" id="b-int-antes">—</span></div>
+        <div class="breakdown-row"><span class="label">Intereses con amortización</span><span class="value" id="b-int-despues">—</span></div>
+        <div class="breakdown-row total"><span class="label">Ahorro total en intereses</span><span class="value green" id="b-ahorro-total">—</span></div>
+      </div>
+
+      <div class="info-box" style="margin-top:14px">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        La mayoría de hipotecas en España tienen una <strong>comisión por amortización anticipada</strong> del 0,15% a 0,25% sobre el capital amortizado. Comprueba tu escritura antes de amortizar.
+      </div>
+
+      <div class="share-box">
+        <p>¿Te ha sido útil?</p>
+        <button class="share-btn wa" onclick="shareWA()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Compartir resultado
+        </button>
+        <button class="share-btn cp" onclick="copyLink()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          Copiar enlace
+        </button>
+      </div>
+      <div class="share-toast" id="share-toast">¡Enlace copiado!</div>
+    </div>
+  </div>
+
+  <div class="ad-slot"><!-- AdSense --></div>
+
+  <section class="faq-section">
+    <h2>Preguntas frecuentes sobre amortización anticipada</h2>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Cuándo conviene más amortizar: reducir plazo o reducir cuota?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer"><p><strong>Reducir plazo</strong> siempre ahorra más dinero en intereses porque dejas de pagar antes. Es la opción más rentable matemáticamente.</p><p><strong>Reducir cuota</strong> es mejor si necesitas liquidez mensual — por ejemplo si tu situación laboral es incierta o tienes otros objetivos de inversión. Pagas menos cada mes pero el total de intereses es ligeramente mayor.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Hay comisión por amortizar anticipadamente?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer"><p>Según la Ley 5/2019 de contratos de crédito inmobiliario, los bancos pueden cobrar una comisión por amortización anticipada con un límite legal:</p><p>Hipotecas a tipo fijo: máximo <strong>2% los primeros 10 años</strong>, y 1,5% a partir del año 11. Hipotecas a tipo variable: máximo <strong>0,25% si se cancela en los 3 primeros años</strong>, o 0,15% del año 4 al 5. A partir del año 5 en variable, no puede cobrarse comisión. Comprueba siempre tu escritura.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">¿Vale más la pena amortizar hipoteca o invertir ese dinero?
+        <svg class="icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer"><p>Depende del tipo de interés de tu hipoteca. La regla práctica: si tu hipoteca tiene un interés superior al 3-4%, suele compensar amortizar. Si es inferior, puede ser más rentable invertir en fondos indexados o renta fija que históricamente ofrecen rendimientos superiores.</p><p>Factores a considerar: perfil de riesgo, plazo de inversión, situación fiscal y tranquilidad mental. No hay una respuesta universal.</p></div>
+    </div>
+  </section>
+
+  <section class="related-section">
+    <h2>Calculadoras relacionadas</h2>
+    <div class="tools-grid">
+      <a href="/calculadora-hipoteca.html" class="tool-card"><span class="tc-emoji">🏠</span><div class="tc-name">Calculadora de hipoteca</div><div class="tc-desc">Calcula tu cuota y tabla de amortización.</div></a>
+      <a href="/calculadora-cuanto-hipoteca.html" class="tool-card"><span class="tc-emoji">🔑</span><div class="tc-name">¿Cuánto puedo pedir?</div><div class="tc-desc">Calcula el importe máximo según tus ingresos.</div></a>
+      <a href="/calculadora-interes-compuesto.html" class="tool-card"><span class="tc-emoji">📈</span><div class="tc-name">Interés compuesto</div><div class="tc-desc">Simula la inversión alternativa.</div></a>
+    </div>
+  </section>
+  <div class="ad-slot"><!-- AdSense --></div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div><div class="footer-logo">CalcuYa.</div><p class="footer-desc">Calculadoras financieras gratuitas para España.</p></div>
+      <div class="footer-col"><h4>Calculadoras</h4>
+        <a href="/calculadora-salario-neto.html">Salario neto</a>
+        <a href="/calculadora-hipoteca.html">Hipoteca</a>
+        <a href="/calculadora-cuanto-hipoteca.html">¿Cuánto puedo pedir?</a>
+        <a href="/calculadora-amortizacion.html">Amortización anticipada</a>
+        <a href="/calculadora-irpf.html">IRPF</a>
+        <a href="/calculadora-iva.html">IVA</a>
+        <a href="/calculadora-paro.html">Paro</a>
+      </div>
+      <div class="footer-col"><h4>Legal</h4>
+        <a href="/privacidad.html">Política de privacidad</a>
+        <a href="/aviso-legal.html">Aviso legal</a>
+        <a href="/cookies.html">Política de cookies</a>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© CalcuYa.</span><span>Cálculos orientativos.</span></div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('hamburger').addEventListener('click', () => document.getElementById('main-nav').classList.toggle('open'));
+let modoAm = 'plazo';
+function fmt(n) { return Math.round(n).toLocaleString('es-ES'); }
+function fmt2(n) { return n.toFixed(2).replace('.',','); }
+
+function setModoAm(m) {
+  modoAm = m;
+  const bp = document.getElementById('btn-plazo');
+  const bc = document.getElementById('btn-cuota');
+  if(m === 'plazo') {
+    bp.style.background='var(--brand)'; bp.style.color='#fff'; bp.style.borderColor='var(--brand)';
+    bc.style.background='var(--white)'; bc.style.color='var(--text-muted)'; bc.style.borderColor='var(--border)';
+  } else {
+    bc.style.background='var(--brand)'; bc.style.color='#fff'; bc.style.borderColor='var(--brand)';
+    bp.style.background='var(--white)'; bp.style.color='var(--text-muted)'; bp.style.borderColor='var(--border)';
+  }
+}
+
+function cuotaFrances(P, r, n) { return r > 0 ? P*(r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1) : P/n; }
+function interesesTotales(P, r, n) { return cuotaFrances(P,r,n)*n - P; }
+
+function calcularAmortizacion() {
+  const P       = parseFloat(document.getElementById('capital-pendiente').value);
+  const tin     = parseFloat(document.getElementById('tin-actual').value)/100;
+  const n       = parseInt(document.getElementById('meses-restantes').value);
+  const extra   = parseFloat(document.getElementById('amortizacion-extra').value);
+
+  if (!P || !n || !extra) { alert('Rellena todos los campos.'); return; }
+  if (extra >= P) { alert('El importe a amortizar no puede superar el capital pendiente.'); return; }
+
+  const r = tin / 12;
+  const cuotaActual = cuotaFrances(P, r, n);
+  const intAntes    = interesesTotales(P, r, n);
+  const nuevoCap    = P - extra;
+
+  let ahorro, reduccion, nuevo;
+  if (modoAm === 'plazo') {
+    // Mismo cuota, menos plazo
+    const cuota = cuotaActual;
+    // Calcular nuevo número de meses: P'*r*(1+r)^n' / ((1+r)^n' - 1) = cuota → iterativo
+    let n2 = 1;
+    if (r > 0) {
+      n2 = Math.log(cuota / (cuota - nuevoCap*r)) / Math.log(1+r);
+    } else {
+      n2 = nuevoCap / cuota;
+    }
+    n2 = Math.ceil(n2);
+    const intDespues = interesesTotales(nuevoCap, r, n2);
+    ahorro = intAntes - intDespues;
+    reduccion = n - n2;
+    nuevo = reduccion;
+
+    document.getElementById('r2-label').textContent  = 'Reducción de plazo';
+    document.getElementById('r2-unit').textContent   = ' meses';
+    document.getElementById('r4-label').textContent  = 'Nuevo plazo';
+    document.getElementById('r4-pre').textContent    = '';
+    document.getElementById('v-nuevo').textContent   = n2;
+    document.getElementById('r4-suf').textContent    = ' meses';
+    document.getElementById('b-int-despues').textContent = fmt(intDespues) + ' €';
+  } else {
+    // Mismo plazo, menos cuota
+    const nuevaCuota = cuotaFrances(nuevoCap, r, n);
+    const intDespues = interesesTotales(nuevoCap, r, n);
+    ahorro = intAntes - intDespues;
+    reduccion = cuotaActual - nuevaCuota;
+
+    document.getElementById('r2-label').textContent  = 'Reducción de cuota';
+    document.getElementById('r2-unit').textContent   = ' €/mes';
+    document.getElementById('r4-label').textContent  = 'Nueva cuota mensual';
+    document.getElementById('r4-pre').textContent    = '€';
+    document.getElementById('v-nuevo').textContent   = fmt2(nuevaCuota);
+    document.getElementById('r4-suf').textContent    = '';
+    document.getElementById('b-int-despues').textContent = fmt(intDespues) + ' €';
+  }
+
+  document.getElementById('v-ahorro').textContent       = fmt(ahorro);
+  document.getElementById('v-reduccion').textContent    = modoAm==='plazo' ? reduccion : fmt2(reduccion);
+  document.getElementById('v-cuota-actual').textContent = fmt2(cuotaActual);
+  document.getElementById('b-cap').textContent          = fmt(P) + ' €';
+  document.getElementById('b-extra').textContent        = fmt(extra) + ' €';
+  document.getElementById('b-nuevo-cap').textContent    = fmt(nuevoCap) + ' €';
+  document.getElementById('b-int-antes').textContent    = fmt(intAntes) + ' €';
+  document.getElementById('b-ahorro-total').textContent = fmt(ahorro) + ' €';
+
+  const res = document.getElementById('results');
+  res.classList.add('visible');
+  res.scrollIntoView({ behavior:'smooth', block:'nearest' });
+}
+
+function shareWA() { window.open('https://wa.me/?text=' + encodeURIComponent('Calcula el ahorro de amortizar tu hipoteca: ' + window.location.href), '_blank'); }
+function copyLink() { navigator.clipboard.writeText(window.location.href).then(() => { const t = document.getElementById('share-toast'); t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2000); }); }
+function toggleFaq(btn) { const exp = btn.getAttribute('aria-expanded')==='true'; btn.setAttribute('aria-expanded', !exp); btn.nextElementSibling.classList.toggle('open'); }
+</script>
+<script src="/cookie-banner.js"></script>
+</body>
+</html>

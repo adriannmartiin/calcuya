@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora de IRPF | Cuota y Retención del Impuesto — CalcuYa</title>
-  <meta name="description" content="Calcula tu cuota y retención del IRPF en España. Tramos actualizadoss, mínimos personales y familiares incluidos. Resultado inmediato, gratis y sin registro.">
+  <title>Simulador y Calculadora del IRPF | Cuota y Retención del Impuesto — CalcuYa</title>
+  <meta name="description" content="Simulador y calculadora del IRPF gratis. Estima tu cuota y retención del Impuesto sobre la Renta con los tramos fiscales vigentes en España. Resultado al instante.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://calcuya.org/calculadora-irpf">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -180,6 +180,20 @@
         <div id="tramos-bars"></div>
       </div>
 
+      
+      <div class="share-box">
+        <p>¿Te ha sido útil?</p>
+        <button class="share-btn wa" onclick="shareWA()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Enviar por WhatsApp
+        </button>
+        <button class="share-btn cp" id="copy-btn" onclick="copyLink()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          Copiar enlace
+        </button>
+      </div>
+      <div class="share-toast" id="share-toast">¡Enlace copiado!</div>
+
       <div class="info-box">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
         Cálculo basado en tramos estatales vigentes. El IRPF final incluye el tipo autonómico que varía según la comunidad autónoma. Esta calculadora usa tipos medios. Para el cálculo exacto usa el simulador de la <strong>AEAT</strong>.
@@ -238,6 +252,41 @@
   </section>
 
   <div class="ad-slot">Espacio publicitario</div>
+
+  
+  <section class="faq-section" style="margin-top:0">
+    <h2>Guía completa: cómo funciona el IRPF en España</h2>
+
+    <h3 style="font-family:'Instrument Serif',serif; font-size:20px; font-weight:400; margin:24px 0 10px;">Los tramos del IRPF: cómo se calcula de forma progresiva</h3>
+    <p style="color:var(--text-muted); line-height:1.8; margin-bottom:12px;">El IRPF es <strong>progresivo</strong>: no pagas el mismo porcentaje por todo lo que ganas, sino un porcentaje diferente por cada "tramo" de renta. Solo pagas el tipo más alto por la parte que supera cada umbral.</p>
+    <div style="overflow-x:auto; margin:0 0 16px;">
+      <table style="width:100%; border-collapse:collapse; font-size:13px;">
+        <thead><tr style="background:var(--bg);">
+          <th style="text-align:left; padding:8px 12px; border-bottom:1px solid var(--border); font-size:12px; color:var(--text-muted)">Tramo (base liquidable)</th>
+          <th style="text-align:right; padding:8px 12px; border-bottom:1px solid var(--border); font-size:12px; color:var(--text-muted)">Tipo estatal</th>
+          <th style="text-align:right; padding:8px 12px; border-bottom:1px solid var(--border); font-size:12px; color:var(--text-muted)">Tipo aprox. total</th>
+        </tr></thead>
+        <tbody>
+          <tr><td style="padding:8px 12px; border-bottom:0.5px solid var(--border); color:var(--text-muted)">Hasta 12.450€</td><td style="padding:8px 12px; border-bottom:0.5px solid var(--border); text-align:right">9,5%</td><td style="padding:8px 12px; border-bottom:0.5px solid var(--border); text-align:right; font-weight:500; color:var(--brand)">19%</td></tr>
+          <tr><td style="padding:8px 12px; border-bottom:0.5px solid var(--border); color:var(--text-muted)">12.450€ – 20.200€</td><td style="padding:8px 12px; border-bottom:0.5px solid var(--border); text-align:right">12%</td><td style="padding:8px 12px; border-bottom:0.5px solid var(--border); text-align:right; font-weight:500; color:var(--brand)">24%</td></tr>
+          <tr><td style="padding:8px 12px; border-bottom:0.5px solid var(--border); color:var(--text-muted)">20.200€ – 35.200€</td><td style="padding:8px 12px; border-bottom:0.5px solid var(--border); text-align:right">15%</td><td style="padding:8px 12px; border-bottom:0.5px solid var(--border); text-align:right; font-weight:500; color:var(--brand)">30%</td></tr>
+          <tr><td style="padding:8px 12px; border-bottom:0.5px solid var(--border); color:var(--text-muted)">35.200€ – 60.000€</td><td style="padding:8px 12px; border-bottom:0.5px solid var(--border); text-align:right">18,5%</td><td style="padding:8px 12px; border-bottom:0.5px solid var(--border); text-align:right; font-weight:500; color:var(--brand)">37%</td></tr>
+          <tr><td style="padding:8px 12px; color:var(--text-muted)">Más de 60.000€</td><td style="padding:8px 12px; text-align:right">22,5%</td><td style="padding:8px 12px; text-align:right; font-weight:500; color:var(--brand)">45-47%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="color:var(--text-muted); line-height:1.8; margin-bottom:20px; font-size:13px;">Los tipos totales incluyen tanto el tramo estatal como el autonómico (varía por comunidad autónoma). Esta calculadora usa la escala estatal más la media autonómica.</p>
+
+    <h3 style="font-family:'Instrument Serif',serif; font-size:20px; font-weight:400; margin:24px 0 10px;">¿Cuándo estás obligado a hacer la declaración de la renta?</h3>
+    <p style="color:var(--text-muted); line-height:1.8; margin-bottom:8px;">Estás obligado a declarar si cumples alguna de estas condiciones:</p>
+    <ul style="color:var(--text-muted); line-height:2; padding-left:20px; margin-bottom:20px;">
+      <li>Ingresos del trabajo superiores a <strong>22.000€</strong> anuales con un solo pagador</li>
+      <li>Ingresos del trabajo superiores a <strong>15.000€</strong> con dos o más pagadores (si el segundo supera 1.500€)</li>
+      <li>Rendimientos de capital mobiliario o ganancias patrimoniales superiores a 1.600€</li>
+      <li>Actividades económicas (autónomos) con cualquier cantidad de ingresos</li>
+      <li>Si quieres recuperar retenciones de más (aunque no estés obligado)</li>
+    </ul>
+  </section>
 
   <section class="related-section">
     <h2>Otras calculadoras relacionadas</h2>
@@ -392,6 +441,20 @@ function calcularIRPF() {
   const res = document.getElementById('results');
   res.classList.add('visible');
   res.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+
+function shareWA() {
+  const url = encodeURIComponent(window.location.href);
+  const text = encodeURIComponent('He usado esta calculadora de CalcuYa y me ha resultado muy útil: ');
+  window.open('https://wa.me/?text=' + text + url, '_blank');
+}
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href).then(() => {
+    const t = document.getElementById('share-toast');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2000);
+  });
 }
 
 function toggleFaq(btn) {
