@@ -66,7 +66,7 @@
     <p class="tool-subtitle">Descubre el poder del efecto bola de nieve. Visualiza cómo crecen tus ahorros con el tiempo gracias al interés compuesto y las aportaciones periódicas.</p>
   </section>
 
-  <div class="ad-slot">Espacio publicitario</div>
+  <div class="ad-slot"><!-- AdSense --></div>
 
   <div class="calc-card">
     <div class="calc-form">
@@ -185,7 +185,7 @@
     </div>
   </div>
 
-  <div class="ad-slot">Espacio publicitario</div>
+  <div class="ad-slot"><!-- AdSense --></div>
 
   <section class="faq-section">
     <h2>Preguntas frecuentes sobre el interés compuesto</h2>
@@ -236,7 +236,7 @@
     </div>
   </section>
 
-  <div class="ad-slot">Espacio publicitario</div>
+  <div class="ad-slot"><!-- AdSense --></div>
 
   <section class="related-section">
     <h2>Otras calculadoras relacionadas</h2>
@@ -304,6 +304,7 @@ function calcularInteres() {
 
   const tbody = document.getElementById('tabla-body');
   tbody.innerHTML = '';
+  window._allRows = [];
 
   let capitalAcum = P;
   let aportadoAcum = P;
